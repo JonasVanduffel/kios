@@ -1,0 +1,37 @@
+{
+  "name": "kios",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "dateformat": "^2.0.0",
+    "events": "^1.1.1",
+    "firebase": "^3.9.0",
+    "flux": "^3.1.2",
+    "history": "^2.1.2",
+    "html5sortable": "^0.5.1",
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-addons-create-fragment": "^15.5.3",
+    "react-button": "^1.2.1",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.4",
+    "react-router": "^2.8.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.2",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

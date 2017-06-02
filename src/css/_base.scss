@@ -1,0 +1,67 @@
+@import url( 'https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700');
+
+// FONT WEIGHTS
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// FONT SIZES
+$font-size-display: 36px;
+$font-size-headline: 30px;
+$font-size-title: 24px;
+$font-size-subheader: 18px;
+$font-size-body: 14px;
+$font-size-caption: 12px;
+
+// BASE FONT
+$base-font-family: 'Fira Sans', sans-serif;
+$base-font-weight: $font-weight-regular;
+$base-font-size: $font-size-body;
+
+// COLORS
+$orange: #FF6131;
+$darkblue: #111926;
+$lightblue: #f6fafd;
+$black: #1d1d1d;
+$gray: #fafafa;
+
+$color-primary: $darkblue;
+$color-secondary: rgba($color-primary, .8);
+$color-disabled: rgba($color-primary, .5);
+$color-accent: $orange;
+$color-light: white;
+$color-gray: #f8f8f8;
+
+$color-background: $lightblue;
+$color-online: #00ff00;
+
+$color-green: #00d786;
+$color-greenblue: #006e75;
+$color-purple: #C07CC6;
+$color-red: #ff2c39;
+$color-orange: #F47E49;
+$color-yellow: #ffcc00;
+$color-pink: #FF7AB4;
+$color-gray: #BCBCBC;
+
+$border-radius: 3px;
+
+h1 {
+    font-size: $font-size-headline;
+    font-weight: $font-weight-semibold;
+    display: block;
+}
+
+h2 {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-title;
+}
+
+h3 {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-subheader;
+
+}

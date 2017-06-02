@@ -1,0 +1,59 @@
+@font-face
+{
+    font-family: 'icomoon';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('https://i.icomoon.io/public/temp/93a2db2170/KIOS/icomoon.eot?oktps0');
+    src: url('https://i.icomoon.io/public/temp/93a2db2170/KIOS/icomoon.eot?oktps0#iefix') format('embedded-opentype'),
+    url('https://i.icomoon.io/public/temp/93a2db2170/KIOS/icomoon.ttf?oktps0') format('truetype'),
+    url('https://i.icomoon.io/public/temp/93a2db2170/KIOS/icomoon.woff?oktps0') format('woff'),
+    url('https://i.icomoon.io/public/temp/93a2db2170/KIOS/icomoon.svg?oktps0#icomoon') format('svg');
+}
+
+[class^='icon-'],
+[class*=' icon-']
+{
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+
+    text-transform: none;
+
+    speak: none;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-course:before
+{
+    content: '\e901';
+}
+.icon-dashboard:before
+{
+    content: '\e902';
+}
+.icon-inbox:before
+{
+    content: '\e903';
+}
+.icon-list:before
+{
+    content: '\e904';
+}
+.icon-team:before
+{
+    content: '\e905';
+}
+.icon-user:before
+{
+    content: '\e906';
+}
+.icon-calendar:before
+{
+    content: '\e900';
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Glyph/Inbox</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Glyph/Inbox" fill="#FFFFFF">
+            <g id="inbox" transform="translate(6.000000, 8.000000)">
+                <g id="Capa_1">
+                    <path d="M19.7898563,0.00991123288 L0.311416838,7.14766466 C-0.0499794661,7.28092493 -0.111581109,7.77232219 0.204640657,7.98887014 L3.11634497,10.0044318 L16.3319507,2.93747288 L5.1450924,11.407829 L5.1450924,14.8392811 C5.1450924,15.0724866 5.4038193,15.2140756 5.59683778,15.0849797 L8.06090349,13.4275551 L10.4880082,15.1058016 C10.7097741,15.2598838 11.0136756,15.1932537 11.1574127,14.9600482 L19.9664476,0.230623562 C20.0403696,0.109856438 19.9212731,-0.0400613699 19.7898563,0.00991123288 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="glyph/dashboard" transform="translate(-7.000000, -8.000000)" fill-rule="nonzero" fill="#FFFFFF">
+            <g id="icon" transform="translate(7.000000, 8.000000)">
+                <g id="Capa_1">
+                    <g id="Group">
+                        <path d="M2.36185714,15.28064 C2.36185714,15.28064 2.34642857,15.6672 2.72571429,15.6672 C3.19757143,15.6672 7.10421429,15.66208 7.10421429,15.66208 L7.11064286,12.09024 C7.11064286,12.09024 7.04892857,11.50144 7.623,11.50144 L9.43971429,11.50144 C10.1185714,11.50144 10.0767857,12.09024 10.0767857,12.09024 L10.0690714,15.65056 L14.355,15.65056 C14.8365,15.65056 14.8146429,15.16928 14.8146429,15.16928 L14.8146429,8.58432 L8.77435714,3.2352 L2.36185714,8.58432 C2.36185714,8.58432 2.36185714,15.28064 2.36185714,15.28064 Z" id="Shape"></path>
+                        <path d="M0,8.0864 C0,8.0864 0.5445,9.08544 1.73185714,8.0864 L8.82771429,2.11008 L15.4806429,8.04928 C16.8550714,9.03616 17.37,8.04928 17.37,8.04928 L8.82771429,0.3456 L0,8.0864 Z" id="Shape"></path>
+                        <polygon id="Shape" points="15.3192857 2.096 13.608 2.096 13.6150714 4.16192 15.3192857 5.60128"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
