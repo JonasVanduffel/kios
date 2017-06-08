@@ -38,6 +38,20 @@ const announcements = {
             "description" : "Op woensdag 10 mei zal ik niet aanwezig zijn.",
             "seen" : false
         },
+    ],
+    "0005": [
+        {
+            "title" : "Herexamen UX Design",
+            "date" : "27/08/2015 om 21:34",
+            "description" : "Beste Studenten, Het examen zal morgen doorgaan in B103.",
+            "seen" : false
+        },
+        {
+            "title" : "planning herexamen UX Design",
+            "date" : "25/08/2015 om 21:21",
+            "description" : "In bijlage vinden jullie de planning voor je herkansing op 28/08. Van de studenten waarvan ik heb doorgekregen dat zij gaan mee doen heb ik opgenomen in de lijst in het zwart. Zij die niets hebben laten",
+            "seen" : false
+        },
     ]
 
 };

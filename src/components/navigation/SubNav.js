@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Link from './LinkSub';
+import * as firebase from 'firebase';
 
 
 export default class SubNav extends Component {
     render() {
-        const { id, title, name } = this.props;
+        let user = firebase.auth().currentUser;
+
+        const { id, title } = this.props;
         const d = new Date();
         const n = d.getHours();
 
@@ -24,7 +27,7 @@ export default class SubNav extends Component {
             case "Dashboard" : {
                 return (
                     <div id="welcome">
-                        <h3 id="welcome-text">{greeting}, {name}!</h3>
+                        <h3 id="welcome-text">{greeting}, {user.displayName}!</h3>
                     </div>
                 )
             }
@@ -59,6 +62,24 @@ export default class SubNav extends Component {
                             <Link url={`/cursussen/algemeen`} title="Algemeen"/>
                             <Link url={`/cursussen/`} title="Academiejaar 2016-2017"/>
                             <Link url={`/cursussen/${id}/opdrachten`} title="Academiejaar 2015-2016"/>
+                        </ul>
+                    </nav>
+                )
+            }
+
+            case "Kalender":
+            case "Inbox": {
+                return (
+                    <nav>
+                    </nav>
+                )
+            }
+
+            case "Account" : {
+                return (
+                    <nav>
+                        <ul>
+                            <Link url={`/account`} title="Algemene info"/>
                         </ul>
                     </nav>
                 )

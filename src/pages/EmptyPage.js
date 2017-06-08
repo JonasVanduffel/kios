@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import Sidebar from '../components/layout/Sidebar';
+import * as firebase from 'firebase';
 
-export default class EmptyPage extends Component {
+class Kalender extends Component {
     render() {
         return (
-            <div>
-                <Sidebar/>
-                <div id="main-wrapper">
-                    <div id="empty-page">
-                        <h1>Niet beschikbaar in deze versie.</h1>
-                    </div>
-                </div>
-            </div>
+            <span>Niet beschikbaar in dit prototype.</span>
         );
     }
 }
+
+export default Kalender;

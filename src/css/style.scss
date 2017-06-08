@@ -2,7 +2,6 @@
 @import "mixins";
 @import "./bootstrap";
 @import "./vendor/font-awesome.min.css";
-@import "./kios-icons";
 
 body {
   padding: 0;
@@ -28,6 +27,7 @@ html {
 .container {
   margin: 0;
 }
+
 
 *,
 *:after,
@@ -188,6 +188,7 @@ ul {
   nav {
     li {
       padding: 12px 0;
+      height: 56px;
 
       a {
         color: rgba(255, 255, 255, .8);
@@ -219,7 +220,7 @@ ul {
         }
 
         img {
-          width: 18px;
+          width: 30px;
         }
 
         span {
@@ -248,19 +249,63 @@ ul {
   }
 }
 
+//.btn {
+//  padding: 10px 15px;
+//  font-size: $font-size-caption;
+//  background: $color-primary;
+//  border-radius: 4px;
+//  color: white;
+//  float: right;
+//  font-weight: $font-weight-semibold;
+//
+//  .fa {
+//    margin-right: 10px;
+//  }
+//}
+
 .btn {
-  padding: 10px 15px;
   font-size: $font-size-caption;
-  background: $color-primary;
-  border-radius: 4px;
-  color: white;
-  float: right;
   font-weight: $font-weight-semibold;
+  color: white;
+  border-radius: 4px;
+  padding: 10px 15px;
+
+  &.btn-primary{
+    background-color: $color-primary;
+    border: none;
+    color: white;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-body;
+    @include border-radius($border-radius);
+    display: inline-block;
+  }
+
+  &.btn-secondary{
+    background-color: $color-accent;
+    border: none;
+    margin-top: 20px;
+    color: white;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-body;
+    @include border-radius($border-radius);
+    display: inline-block;
+  }
+
+  &.btn-edit{
+    position: fixed;
+    bottom: 15px;
+    margin: 0 auto;
+    left: 50%;
+    font-size: $font-size-caption;
+    background-color: $color-secondary;
+  }
 
   .fa {
     margin-right: 10px;
   }
 }
+
+
 
 #main-wrapper {
   width: calc(100% - 200px);
@@ -312,7 +357,7 @@ ul {
           width: 10px;
           height: 10px;
           border: 0;
-          background: #fff url('../assets/down-arrow.svg') no-repeat;
+          //background: #fff url('../assets/down-arrow.svg') no-repeat;
           background-size: 10px;
           background-position: right 0 center;
           padding-left: 20px;
@@ -329,7 +374,7 @@ ul {
         width: 50%;
         font-size: $font-size-body;
         font-weight: $font-weight-medium;
-        // background-image: url("../assets/icons/search.svg");
+        // background-image: url("../assets/glyphs/search.svg");
         // background-repeat: no-repeat;
         // background-position: right;
         // background-position: right 70px center;
@@ -403,33 +448,203 @@ ul {
     animation: fadein 1.5s;
 
     .card {
-      @include border-radius($border-radius);
       background-color: white;
       padding: 15px;
       box-shadow: 0 0 15px 0 rgba($color-primary, 0.05);
-
       position: relative;
+      @include border-radius($border-radius);
 
-      // &:hover {
-      //     .move {
-      //         display: block;
-      //     }
-      // }
 
-      .move {
-        float: right;
-        position: absolute;
-        cursor: move;
-        right: 8px;
-        top: 8px;
-        font-size: 13px;
-        color: $color-disabled;
-        opacity: 0.3;
-        display: none;
 
+      &.card-dashboard {
+        padding: 0px;
+        @include border-radius($border-radius);
+
+        .delete{
+          position: absolute;
+          margin: -15px;
+        }
+
+        .card-header {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid rgba($color-primary, .1);
+          padding: 15px;
+
+          h3 {
+            margin-left: 15px;
+          }
+
+          a {
+            font-size: $font-size-caption;
+            margin-left: auto;
+          }
+        }
+
+        .card-body {
+          padding: 15px;
+
+          img {
+            width: 100%;
+            vertical-align: middle;
+          }
+
+          .les {
+            background-color: re;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &::before {
+              content: ' ';
+              width: 7px;
+              height: 7px;
+              display: inline-block;
+              border-radius: 50%;
+              background-color: transparent;
+              margin-right: 15px;
+            }
+
+            &:nth-child(2){
+              &::before{
+                background-color: $color-accent;
+              }
+            }
+
+            .title {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 60%;
+            }
+
+            .location {
+              font-size: $font-size-caption;
+              color: $color-disabled;
+            }
+
+            .time {
+              margin-left: auto;
+            }
+          }
+
+          .result {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .close{
+              margin-left: auto;
+            }
+
+            .score {
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              width: 72px !important;
+              height: 29px !important;
+              vertical-align: middle;
+              border-radius: 3px;
+              color: white;
+              font-weight: 500;
+              margin-right: 10px;
+              font-size: 12px;
+
+              &.success {
+                background-color: $color-green;
+              }
+
+              &.failed {
+                background-color: $color-red;
+              }
+
+              &.feedback {
+                background-color: $color-accent;
+              }
+            }
+          }
+
+          .course-fav{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            border-left: 3px solid;
+            padding-left: 12px;
+            height: 32px;
+
+            &:last-child{
+              margin-bottom: 0;
+            }
+
+            .title{
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 60%;
+            }
+
+            .icons{
+              margin-left: auto;
+
+              div{
+                display: inline-block;
+                position: relative;
+
+                img{
+                  width: 26px;
+                  height:26px;
+
+                  &.update{
+                    width: 10px;
+                    height: 10px;
+                    position: absolute;
+                    right: 2px;
+                    top: 2px;
+                  }
+                }
+              }
+            }
+          }
+
+          #testt {
+            display: flex;
+            align-items: center;
+
+            img{
+              width: 70px;
+            }
+
+            #deadline {
+              margin-left: 15px;
+
+              #deadline-title {
+                font-size: $font-size-subheader;
+                font-weight: $font-weight-medium;
+                display: block;
+              }
+
+              #deadline-time {
+
+                font-size: $font-size-caption;
+              }
+            }
+          }
+        }
       }
 
-      &.course {
+      &.card-course {
         border-left: 4px solid;
 
         a {
@@ -458,93 +673,9 @@ ul {
             }
           }
         }
-
-        .fav {
-          position: absolute;
-          right: 15px;
-          bottom: 15px;
-          color: $color-disabled;
-          font-size: $font-size-subheader;
-
-          &.favourite {
-            color: $color-yellow;
-          }
-        }
-      }
-
-      &.card-dashboard {
-        padding-left: 20px;
-
-        h2 {
-          margin-bottom: 20px;
-        }
-
-        p {
-          line-height: 19px;
-        }
-
-        .fa-sort-alpha-asc,
-        .fa-sort-alpha-desc {
-          float: right;
-          font-size: $font-size-subheader;
-          color: $color-primary;
-        }
-
-        #dashboard-courses {
-          .course {
-            background-color: $color-gray;
-            padding: 15px 50px 15px 15px;
-            border-left: 3px solid;
-            font-weight: $font-weight-semibold;
-            position: relative;
-            display: flex;
-            color: $color-primary;
-
-            &:not(:last-child) {
-              margin-bottom: 7px;
-            }
-
-            .fa-star {
-              color: $color-yellow;
-              font-size: $font-size-subheader;
-              width: 12%;
-            }
-
-            .course-name {
-              width: 100%;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-
-            a {
-              width: 70%;
-            }
-
-            .notification {
-              position: absolute;
-              right: 10px;
-              top: 11px;
-              background: $color-accent;
-              font-size: $font-size-caption;
-              padding: 5px;
-              color: $color-light;
-              border-radius: 50%;
-              width: 25px;
-              height: 25px;
-              text-align: center;
-            }
-
-          }
-        }
-
-        #read-more {
-          font-size: $font-size-caption;
-        }
       }
 
       &.card-message {
-        margin-bottom: -20px;
         display: flex;
 
         .avatar{
@@ -564,10 +695,73 @@ ul {
             color: $color-secondary;
             font-size:$font-size-caption;
           }
+
+          p{
+            width: 70%;
+          }
+
+          @media (max-width: 768px) {
+            p {
+              width: 100%;
+            }
+          }
         }
       }
 
       &.card-course-files {
+        padding: 30px;
+        margin-bottom: 15px;
+
+        @media (max-width: 768px) {
+          &.card-course-files {
+            padding: 15px;
+          }
+        }
+
+        section{
+          h3{
+            display: flex;
+            align-items: center;
+
+            a{
+              color: $color-primary;
+              overflow:hidden;
+              white-space:nowrap;
+              text-overflow: ellipsis;
+            }
+
+            @media (max-width: 768px) {
+              img{
+                display: none;
+              }
+            }
+
+            img{
+              margin-left:auto;
+              width: 24px;
+            }
+
+            &::before{
+              font-family: FontAwesome;
+              content: '\f0d7';
+              font-size: 12px;
+              margin-right: 15px;
+            }
+          }
+
+          .files{
+            background-color: $color-light;
+            display: flex;
+            margin: 15px 0 0 0;
+            padding: 0 0 0 20px;
+
+            a{
+
+            }
+          }
+        }
+
+
         .assignments,
         .files {
           width: 100%;
@@ -629,7 +823,7 @@ ul {
         }
       }
 
-      &.group {
+      &.card-group {
         &.group-post {
           display: flex;
           justify-content: flex-start;
@@ -721,7 +915,7 @@ ul {
 }
 
 [class*='col-'] {
-  margin-bottom: 30px !important;
+  margin-bottom: 15px !important;
 }
 
 #search-popup {
@@ -783,7 +977,14 @@ ul {
     margin-left: 0;
 
     main {
-      padding: 0 15px;
+      padding: 20px 15px;
+    }
+  }
+
+  #switch-buttons{
+    padding: 5px 0 !important;
+    a{
+      padding: 5px 15px !important;
     }
   }
 
@@ -791,6 +992,14 @@ ul {
     display: block;
 
     #mobile-nav-main {
+      display: inline-flex;
+
+      h3{
+        color: $color-light;
+        margin-left: 15px;
+        align-self: center;
+      }
+
       ul {
         width: 100%;
         display: inline-flex;
@@ -807,7 +1016,7 @@ ul {
       }
 
       background-color: $color-primary;
-      padding: 20px;
+      padding: 14px 15px;
       width: 100%;
       position: fixed;
       top: 0;
@@ -820,6 +1029,14 @@ ul {
       margin-top: 58px;
       background-color: $color-accent;
       -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,.15);
+
+      #welcome{
+        padding: 15px;
+
+        #welcome-text{
+          color: $color-light;
+        }
+      }
 
       ul {
         overflow-x: auto;
@@ -910,189 +1127,6 @@ ul {
   }
 }
 
-.card2 {
-  background-color: white;
-  box-shadow: 0 0 15px 0 rgba($color-primary, 0.05);
-  position: relative;
-
-  &.card2-dashboard {
-    @include border-radius($border-radius);
-
-    .card-header {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid rgba($color-primary, .1);
-      padding: 15px;
-
-      h3 {
-        margin-left: 15px;
-      }
-
-      a {
-        font-size: $font-size-caption;
-        margin-left: auto;
-      }
-    }
-
-    .card-body {
-      padding: 15px;
-
-      img {
-        width: 100%;
-        vertical-align: middle;
-      }
-
-      .les {
-        background-color: re;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        &::before {
-          content: ' ';
-          width: 7px;
-          height: 7px;
-          display: inline-block;
-          border-radius: 50%;
-          background-color: transparent;
-          margin-right: 15px;
-        }
-
-        &:nth-child(2){
-          &::before{
-            background-color: $color-accent;
-          }
-        }
-
-        .title {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          width: 60%;
-        }
-
-        .location {
-          font-size: $font-size-caption;
-          color: $color-disabled;
-        }
-
-        .time {
-          margin-left: auto;
-        }
-      }
-
-      .result {
-        margin-bottom: 15px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        .score {
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          width: 72px !important;
-          height: 29px !important;
-          vertical-align: middle;
-          border-radius: 3px;
-          color: white;
-          font-weight: 500;
-          margin-right: 15px;
-          font-size: 12px;
-
-          &.success {
-            background-color: $color-green;
-          }
-
-          &.failed {
-            background-color: $color-red;
-          }
-
-          &.feedback {
-            background-color: $color-accent;
-          }
-        }
-      }
-
-      .course-fav{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        margin-bottom: 5px;
-        border-left: 3px solid;
-        padding-left: 12px;
-        height: 32px;
-
-        &:last-child{
-          margin-bottom: 0;
-        }
-
-        .title{
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          width: 60%;
-        }
-
-        .icons{
-          margin-left: auto;
-
-          div{
-            display: inline-block;
-            position: relative;
-
-            img{
-              width: 26px;
-              height:26px;
-
-              &.update{
-                width: 10px;
-                height: 10px;
-                position: absolute;
-                right: 2px;
-                top: 2px;
-              }
-            }
-          }
-        }
-      }
-
-      #testt {
-        display: flex;
-        align-items: center;
-
-        img{
-          width: 70px;
-        }
-
-        #deadline {
-          margin-left: 15px;
-
-          #deadline-title {
-            font-size: $font-size-subheader;
-            font-weight: $font-weight-medium;
-            display: block;
-          }
-
-          #deadline-time {
-
-            font-size: $font-size-caption;
-          }
-        }
-      }
-    }
-
-  }
-}
-
 #login{
   background-color: $color-accent;
   width: 100vw;
@@ -1103,8 +1137,8 @@ ul {
     width: 600px;
     background-color: white;
     color: black;
-    margin: 200px auto 0 auto;
-    padding: 40px 90px 20px 90px;
+    margin: 150px auto 0 auto;
+    padding: 40px 70px 20px 70px;
     text-align: center;
     @include border-radius(6px);
 
@@ -1116,44 +1150,95 @@ ul {
       margin-bottom: 20px;
     }
 
-    #login-form{
+    form{
       input{
         width: 100%;
         display: block;
+        font-family: $base-font-family;
+        font-size: $font-size-body;
         margin: 10px auto;
+        padding: 10px 12px;
         border: 1px solid rgba($color-primary, .15);
         @include border-radius($border-radius);
-        padding: 8px;
-
-        &::placeholder{
-          color: $color-disabled;
-          font-family: $base-font-family;
-        }
-      }
-
-      .btn2{
-        &.btn-accent{
-          background-color: $color-accent;
-          border: none;
-          padding: 7px 15px;
-          margin-top: 20px;
-          color: white;
-          font-weight: $font-weight-medium;
-          font-size: $font-size-caption;
-          @include border-radius($border-radius);
-          display: inline-block;
-        }
-      }
-
-      #register{
-        bottom: 0;
-        display: block;
-        position: relative;
-        margin-top: 50px;
-        font-size: $font-size-caption;
-        font-weight: $font-weight-regular;
-        color: $color-primary
       }
     }
+
+    #register{
+      bottom: 0;
+      display: block;
+      position: relative;
+      margin-top: 30px;
+      font-size: $font-size-caption;
+      font-weight: $font-weight-regular;
+      color: $color-primary
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #action-button{
+    display: block;
+    text-align: center !important;
+    
+    &.no-mobile{
+      display: none;
+    }
+  }
+}
+
+#action-button{
+  display: block;
+  text-align: right;
+  padding: 0 0 20px 0;
+
+  #switch-buttons{
+    display: inline-block;
+    padding: 10px 0;
+    font-size: $font-size-caption;
+    border: 1px solid $color-primary;
+    @include border-radius($border-radius);
+
+    a{
+      color: $color-primary;
+      padding: 10px 15px;
+
+      &.unread{
+      }
+
+      &.read{
+      }
+
+      &.active{
+        background-color: $color-primary;
+        color: $color-light
+      }
+    }
+  }
+}
+
+.shake{
+  animation: shake 0.82s cubic-bezier(.01,.01,.01,.01) both;
+  animation-iteration-count: infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-.8px, -.8px, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(.8px, .8px, 0);
+  }
+
+  30%, 80%, 70% {
+    transform: translate3d(-.8px, -.8px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(.8px, .8px, 0);
   }
 }

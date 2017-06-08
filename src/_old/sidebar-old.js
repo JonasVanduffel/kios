@@ -53,7 +53,7 @@ export default class Sidebar extends Component {
 
                     <div id="logo">
 
-                        <img src={require('./../../assets/logo.svg')} alt="Logo" onClick={this.switchAccounts.bind(this)}/>
+                        {/*<img src={require('./../../assets/logo.svg')} alt="Logo" onClick={this.switchAccounts.bind(this)}/>*/}
 
                     </div>
                 </aside>

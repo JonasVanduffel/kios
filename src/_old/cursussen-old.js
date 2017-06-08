@@ -1,3 +1,4 @@
+/*
 import React, { Component } from 'react';
 import Request from 'superagent';
 import _ from 'lodash';
@@ -25,7 +26,7 @@ class Cursussen extends Component {
         this.changePerson(person);
     }
 
-    /*    componentWillMount(){
+    /!*    componentWillMount(){
      // Called first time the component is loaded right before component is added to page
      const url = "http://dtsl.ehb.be/~jonas.vanduffel/kios.json";
      Request.get(url).then((response) => {
@@ -34,7 +35,7 @@ class Cursussen extends Component {
      studentName: response.body.students[this.state.person].name,*!/
      });
      });
-     }*/
+     }*!/
 
     componentDidMount(){
         // Called after the component has been rendered into the page
@@ -55,7 +56,7 @@ class Cursussen extends Component {
     render() {
         const allCourses = this.state.courses;
 
-        /*        const coursesPerStudent = _.map(this.state.students, (student) =>{
+        /!*        const coursesPerStudent = _.map(this.state.students, (student) =>{
          var courses = _.map(student.courses, (course) =>{
          return course;
          });
@@ -63,10 +64,10 @@ class Cursussen extends Component {
          return (
          courses
          );
-         });*/
-        /*       const student = _.map(this.state.students, (student) =>{
+         });*!/
+        /!*       const student = _.map(this.state.students, (student) =>{
          return student.name;
-         });*/
+         });*!/
 
         const coursez = _.map(allCourses, (course, index) =>{
             return (
@@ -75,10 +76,10 @@ class Cursussen extends Component {
                         <h3><Link to={"/cursussen/" + course.title + "/aankondigingen"}>{course.title}</Link></h3>
                         <span>{course.docent}</span>
                         <div className="course-icons">
-                            <Link to={"/cursussen/" + course.title + "/aankondigingen"}><img src={require('../assets/icons/glyph/News.svg')} alt="Aankondigingen" /></Link>
-                            <Link to={"/cursussen/" + course.title + "/cursusdocumenten"}><img src={require('../assets/icons/glyph/Document.svg')} alt="Documenten" /></Link>
-                            <Link to={"/cursussen/" + course.title + "/opdrachten"}><img src={require('../assets/icons/glyph/Tasks/Dark.svg')} alt="Opdrachten" /></Link>
-                            <Link to={"/cursussen/" + course.title + "/resultaten"}><img src={require('../assets/icons/glyph/Score.svg')} alt="Resultaten" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/aankondigingen"}><img src={require('../assets/glyphs/glyph/News.svg')} alt="Aankondigingen" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/cursusdocumenten"}><img src={require('../assets/glyphs/glyph/Document.svg')} alt="Documenten" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/opdrachten"}><img src={require('../assets/glyphs/glyph/Tasks/Dark.svg')} alt="Opdrachten" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/resultaten"}><img src={require('../assets/glyphs/glyph/Score.svg')} alt="Resultaten" /></Link>
                         </div>
                     </div>
                 </div>
@@ -93,10 +94,10 @@ class Cursussen extends Component {
                         <h3><Link to={"/cursussen/" + course.title + "/aankondigingen"}>{course.title}</Link></h3>
                         <span>{course.docent}</span>
                         <div className="course-icons">
-                            <Link to={"/cursussen/" + course.title + "/aankondigingen"}><img src={require('../assets/icons/glyph/News.svg')} alt="Aankondigingen" /></Link>
-                            <Link to={"/cursussen/" + course.title + "/cursusdocumenten"}><img src={require('../assets/icons/glyph/Document.svg')} alt="Documenten" /></Link>
-                            <Link to={"/cursussen/" + course.title + "/opdrachten"}><img src={require('../assets/icons/glyph/Tasks/Dark.svg')} alt="Opdrachten" /></Link>
-                            <Link to={"/cursussen/" + course.title + "/resultaten"}><img src={require('../assets/icons/glyph/Score.svg')} alt="Resultaten" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/aankondigingen"}><img src={require('../assets/glyphs/glyph/News.svg')} alt="Aankondigingen" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/cursusdocumenten"}><img src={require('../assets/glyphs/glyph/Document.svg')} alt="Documenten" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/opdrachten"}><img src={require('../assets/glyphs/glyph/Tasks/Dark.svg')} alt="Opdrachten" /></Link>
+                            <Link to={"/cursussen/" + course.title + "/resultaten"}><img src={require('../assets/glyphs/glyph/Score.svg')} alt="Resultaten" /></Link>
                         </div>
                     </div>
                 </div>
@@ -117,4 +118,4 @@ class Cursussen extends Component {
     }
 }
 
-export default Cursussen;
+export default Cursussen;*/

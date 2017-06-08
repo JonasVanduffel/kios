@@ -1,3 +1,4 @@
+/*
 import React, { Component } from 'react';
 import _ from 'lodash';
 import Course from "../components/dashboard/comp/FavCourse";
@@ -68,9 +69,9 @@ class Dashboard extends Component {
 
             return(<Lesson key={index} title={lesson.date} date={lesson.date} start={lesson.start} end={lesson.end} location={lesson.location} {...lesson}/>)
             //}
-            /*else{
+            /!*else{
              return(null)
-             }*/
+             }*!/
         });
 
 
@@ -88,14 +89,14 @@ class Dashboard extends Component {
             <div className="row">
                 <div className="col-md-4 col-sm-12">
                     <div className="card2 card2-dashboard">
-                        <CardHeader title="Lessen van vandaag" src={require("../assets/icons/glyph/Calendar/Dark.svg")} more={true}/>
+                        <CardHeader title="Lessen van vandaag" src={require("../assets/glyphs/glyph/Calendar/Dark.svg")} more={true}/>
                         <Lesson lessons={lessons}/>
                     </div>
                 </div>
 
                 <div className="col-md-4 col-sm-12">
                     <div className="card2 card2-dashboard">
-                        <CardHeader title="Nieuwe scores" src={require("../assets/icons/glyph/Score.svg")} more={true}/>
+                        <CardHeader title="Nieuwe scores" src={require("../assets/glyphs/glyph/Score.svg")} more={true}/>
 
                         <div id="card-body">
                             {NewScores}
@@ -105,11 +106,11 @@ class Dashboard extends Component {
 
                 <div className="col-md-4 col-sm-12">
                     <div className="card2 card2-dashboard">
-                        <CardHeader title="Volgende deadline" src={require("../assets/icons/glyph/Calendar/Dark.svg")} more={false}/>
+                        <CardHeader title="Volgende deadline" src={require("../assets/glyphs/glyph/Calendar/Dark.svg")} more={false}/>
 
                         <div id="card-body">
                             <div id="testt">
-                                <img src={require('../assets/icons/circle.svg')}   alt=""/>
+                                <img src={require('../assets/glyphs/circle.svg')}   alt=""/>
                                 <div id="deadline">
                                     <span id="deadline-title">Opdracht 1: Persona Profiel</span>
                                     <span id="deadline-time">Woensdag 25 april</span>
@@ -121,7 +122,7 @@ class Dashboard extends Component {
 
                 <div className="col-md-4 col-sm-12">
                     <div className="card2 card2-dashboard">
-                        <CardHeader title="Favoriete cursussen" src={require("../assets/icons/glyph/Course/Dark.svg")} more={false}/>
+                        <CardHeader title="Favoriete cursussen" src={require("../assets/glyphs/glyph/Course/Dark.svg")} more={false}/>
 
                         <div id="card-body">
                             {CourseFavorites}
@@ -131,7 +132,7 @@ class Dashboard extends Component {
 
                 <div className="col-md-4 col-sm-12">
                     <div className="card2 card2-dashboard">
-                        <CardHeader title="Project van de dag" src={require("../assets/icons/glyph/Firework.svg")} more={true}/>
+                        <CardHeader title="Project van de dag" src={require("../assets/glyphs/glyph/Firework.svg")} more={true}/>
 
                         <div id="card-body">
                             <img src={require('../assets/planckendael.jpg')} alt="" />
@@ -144,4 +145,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default Dashboard;*/

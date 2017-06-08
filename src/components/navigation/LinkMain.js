@@ -8,7 +8,7 @@ export default class LinkMain extends Component {
         return (
             <li>
                 <Link to={url} activeClassName={"active"}>
-                    <div className="nav-icon"><img src={require('./../../assets/icons/' + imgSrc)} alt={title}/></div>
+                    <div className="nav-icon"><img src={require('./../../assets/Glyph/Light/' + imgSrc)} alt={title}/></div>
                     {title}
                 </Link>
             </li>

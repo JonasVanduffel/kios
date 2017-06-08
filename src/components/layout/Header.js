@@ -40,7 +40,7 @@ export default class HeaderNew extends Component{
     }
 
     render(){
-        const { title, cursus } = this.props;
+        const {title, cursus } = this.props;
 
         if(cursus){
             return(
@@ -53,7 +53,7 @@ export default class HeaderNew extends Component{
 
                         <div id="search-popup">
                             <Link to="#" id="close"><i className="fa fa-close" aria-hidden="true"/></Link>
-                            <span>Resultaten:</span>
+                            <span>Resultate:</span>
                             <h4 id="search-term">Zoeken</h4>
                         </div>
 

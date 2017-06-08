@@ -4,12 +4,20 @@ import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
 
 class Signup extends Component {
-    constructor(){
+    /*constructor(){
         super();
         this.state = {
             user : '',
             pic : '',
         };
+    }*/
+
+    componentWillMount(){
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                browserHistory.push('/login');
+            }
+        });
     }
 
     componentDidMount() {
@@ -20,52 +28,41 @@ class Signup extends Component {
 
 
         btnSignup.addEventListener('click', e => {
+            const auth = firebase.auth();
             const email = txtEmail.value;
             const pass = txtPassword.value;
             const name = txtName.value;
             const photo = "https://source.unsplash.com/random";
-            const auth = firebase.auth();
 
             auth.createUserWithEmailAndPassword(email, pass).then(function(user){
                 return user.updateProfile({
                     displayName: name,
                     photoURL: photo
                 })
+            }).catch(function(error) {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorCode + "\n\n" +  errorMessage);
             });
-
-
-        });
-
-        firebase.auth().onAuthStateChanged(firebaseUser => {
-            if (firebaseUser) {
-                browserHistory.push('/login');
-            }
         });
     }
 
     render() {
-
         return (
-
             <div id="login">
                 <div id="login-wrapper">
                     <h1>KIOS</h1>
 
-                    <div id="login-form">
-                        <input id="txtName" type="name" placeholder="Voor + achternaam"/>
+                    <form>
+                        <input id="txtName" type="name" placeholder="Volledige naam"/>
                         <input id="txtEmail" type="email" placeholder="E-mailadres"/>
                         <input id="txtPassword" type="password" placeholder="Wachtwoord"/>
+                        <a href="#" className="btn btn-secondary" id="btnSignup">Registreren</a>
+                    </form>
 
-                        <a href="#" className="btn2 btn-accent" id="btnSignup">Registreren</a>
-
-                        <Link id="register" to={"/login"}>Inloggen</Link>
-                    </div>
+                    <Link id="register" to={"/login"}>Al een account? Log hier in!</Link>
                 </div>
             </div>
-
-
-
-
         );
     }
 }

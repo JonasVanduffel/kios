@@ -49,7 +49,7 @@ const courses = [
     },
     {
         "id": "0007",
-        "title": "Networked Media",
+        "title": "3CMD Onderzoeksmethodologie: project [N60909]",
         "docent": "Dylan Freeman",
         "color": "gray",
         "favorite": false,

@@ -2,47 +2,43 @@ import React, { Component } from 'react';
 
 import Sidebar from './Sidebar';
 import Header from './Header';
-
-import CourseStore from '../../stores/CourseStore';
+import HeaderMobile from './HeaderMobile';
+import * as firebase from 'firebase';
 
 export default class Layout extends Component {
-    constructor(){
-        super();
-        this.getStudent = this.getStudent.bind(this);
-        this.state = {
-            student: CourseStore.getStudent(),
-        };
+    constructor(props) {
+        super(props);
+        this.state = { type: null };
+        this.onTypeChange = this.onTypeChange.bind(this);
+
+        var userId = firebase.auth().currentUser.uid;
+        firebase.database().ref('/users/' + userId).once('value', this.onTypeChange);
     }
 
-    componentWillMount(){
-        CourseStore.on("change", this.getStudent);
-    }
-
-    getStudent(){
-        this.setState({
-            student: CourseStore.getStudent(),
-        });
+    onTypeChange(data){
+        this.setState({type: data.val().type});
+        this.forceUpdate();
     }
 
     render() {
-        const { student } = this.state;
         const { courseId } = this.props.params;
+        const { type } = this.state;
 
         const i = this.props.courses.findIndex((course) => course.id === courseId );
         const course = this.props.courses[i];
 
-
-        if (this.props.params.courseId == null) {
+        if (courseId == null) {
             return (
 
                 <div>
-                    <Sidebar/>
+                    <Sidebar type={type} title={this.props.children.props.route.title}/>
 
                     <div id="main-wrapper">
-                        <Header title={this.props.children.props.route.title} name={student.first_name}/>
+                        <Header title={this.props.children.props.route.title}/>
+                        <HeaderMobile title={this.props.children.props.route.title}/>
                         <main>
                             <div className="container-fluid">
-                                {React.cloneElement(this.props.children, this.props)}
+                                {React.cloneElement(this.props.children, this.props, {type: type})}
                             </div>
                         </main>
                     </div>
@@ -52,14 +48,13 @@ export default class Layout extends Component {
             return (
 
                 <div>
-                    <Sidebar/>
+                    <Sidebar type={type} id={course.id} tit={course.title} title={this.props.children.props.route.title} cursus={true}/>
 
                     <div id="main-wrapper">
-                        <Header id={course.id} title={course.title} name={student.first_name} cursus={true}/>
+                        <Header id={course.id} title={course.title} cursus={true}/>
                         <main>
                             <div className="container-fluid">
-
-                                {React.cloneElement(this.props.children, this.props)}
+                                {React.cloneElement(this.props.children, this.props, {type: type})}
                             </div>
                         </main>
                     </div>

@@ -1,6 +1,6 @@
 import {EventEmitter} from 'events';
 import dispatcher from '../dispatcher';
-import axios from 'axios';
+// import axios from 'axios';
 
 class CourseStore extends EventEmitter{
     constructor(){
@@ -10,12 +10,12 @@ class CourseStore extends EventEmitter{
         this.student = [];
         this.course = [];
 
-        axios.get('http://dtsl.ehb.be/~jonas.vanduffel/KIOS/api.json').then(data =>{
+        /*axios.get('http://dtsl.ehb.be/~jonas.vanduffel/KIOS/api.json').then(data =>{
             let response = data.data.students[this.studentId];
 
             dispatcher.dispatch({type: "RECEIVE_STUDENT", response});
             dispatcher.dispatch({type: "RECEIVE_COURSE", response});
-        });
+        });*/
     }
 
     getUser(){

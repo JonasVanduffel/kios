@@ -5,25 +5,49 @@ import LinkMain from './LinkMain';
 
 export default class NavMain extends Component {
     render() {
+        const { type } = this.props;
 
-        return (
-            <nav>
-                <ul>
-                    <li>
-                        <IndexLink to="/" activeClassName={"active"}>
-                            <div className="nav-icon"><img src={require('./../../assets/icons/dashboard.svg')} alt="Dashboard"/></div>
-                            Dashboard
-                        </IndexLink>
-                    </li>
+        if(type === "Student"){
+            return (
+                <nav>
+                    <ul>
+                        <li>
+                            <IndexLink to="/" activeClassName={"active"}>
+                                <div className="nav-icon"><img src={require('./../../assets/Glyph/Light/Dashboard.svg')} alt="Dashboard"/></div>
+                                Dashboard
+                            </IndexLink>
+                        </li>
 
-                    <LinkMain url="/cursussen" imgSrc="course.svg" title="Cursussen"/>
-                    <LinkMain url="/community" imgSrc="list.svg" title="Community"/>
-                    <LinkMain url="/groepen" imgSrc="team.svg" title="Groepen"/>
-                    <LinkMain url="/kalender" imgSrc="calendar.svg" title="Kalender"/>
-                    <LinkMain url="/inbox" imgSrc="inbox.svg" title="Inbox"/>
-                    <LinkMain url="/account" imgSrc="user.svg" title="Account"/>
-                </ul>
-            </nav>
-        )
+                        <LinkMain url="/cursussen" imgSrc="Course.svg" title="Cursussen"/>
+                        <LinkMain url="/inspiratie" imgSrc="Inspiration.svg" title="Inspiratie"/>
+                        <LinkMain url="/groepen" imgSrc="Group.svg" title="Groepen"/>
+                        <LinkMain url="/kalender" imgSrc="Calendar.svg" title="Kalender"/>
+                        <LinkMain url="/inbox" imgSrc="Inbox.svg" title="Inbox"/>
+                        <LinkMain url="/account" imgSrc="Account.svg" title="Account"/>
+                    </ul>
+                </nav>
+            )
+        } else{
+
+            return (
+                <nav>
+                    <ul>
+                        <li>
+                            <IndexLink to="/" activeClassName={"active"}>
+                                <div className="nav-icon"><img src={require('./../../assets/Glyph/Light/Dashboard.svg')} alt="Dashboard"/></div>
+                                Dashboard
+                            </IndexLink>
+                        </li>
+
+                        <LinkMain url="/cursussen" imgSrc="Course.svg" title="Cursussen"/>
+                        <LinkMain url="/kalender" imgSrc="Calendar.svg" title="Kalender"/>
+                        <LinkMain url="/inbox" imgSrc="Inbox.svg" title="Inbox"/>
+                        <LinkMain url="/account" imgSrc="Account.svg" title="Account"/>
+                    </ul>
+                </nav>
+            )
+        }
+
+
     }
 }
