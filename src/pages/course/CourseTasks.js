@@ -1,61 +1,93 @@
 import React, { Component } from 'react';
 
+import Assignment from "../../components/CardAssignment";
 
 export default class CursusOpdrachten extends Component {
     render() {
-        // console.log(this.props);
+        if(this.props.children.type === "Student"){
+            return (
+                <div>
+                    <div className="row">
+                        <div className="col-md-12 col-sm-12">
+                            <div className="assignment-group">
+                                <div className="header">
+                                    <h2><i className="fa fa-caret-down" aria-hidden="true"> </i>Taken</h2>
+                                    <span className="percent">50%</span>
+                                </div>
 
-        return (
-            <div className="row">
-                <div className="col-md-12 col-sm-12">
-                    <div className="assignment-group">
-                        <div className="assignments-header">
-                            <h2><i className="fa fa-caret-down" aria-hidden="true"> </i> Taken</h2>
-                            <span className="percent">50%</span>
-                        </div>
-
-                        <div className="assignments-body">
-                            <div className="card card-assignment">
-                                <div className="status"><span><i className="fa fa-check-circle" aria-hidden="true"> </i></span></div>
-                                <div>
-                                    <h3><a href="">Opdracht 1: Persona Profiel</a></h3> Inleverdatum: 1 Maart 2017 | 7/10 punten
+                                <div className="body">
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
                                 </div>
                             </div>
-                            <div className="card card-assignment">
-                                <div className="status"><span><i className="fa fa-times-circle" aria-hidden="true"> </i></span></div>
-                                <div>
-                                    <h3><a href="">Opdracht 1: Persona Profiel</a></h3> Inleverdatum: 1 Maart 2017 | 7/10 punten
-                                </div>
-                                <a href="tid-opdracht-1.html"><i className="fa fa-upload" aria-hidden="true"> </i></a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="assignment-group">
-                        <div className="assignments-header">
-                            <h2><i className="fa fa-caret-down" aria-hidden="true"> </i> Taken</h2>
-                            <span className="percent">50%</span>
-                        </div>
+                            <div className="assignment-group">
+                                <div className="header">
+                                    <h2><i className="fa fa-caret-down" aria-hidden="true"> </i>Testen</h2>
+                                    <span className="percent">50%</span>
+                                </div>
 
-                        <div className="assignments-body">
-                            <div className="card card-assignment">
-                                <div className="status"><span><i className="fa fa-times-circle" aria-hidden="true"> </i></span></div>
-                                <div>
-                                    <h3><a href="">Opdracht 1: Persona Profiel</a></h3> Inleverdatum: 1 Maart 2017 | 7/10 punten
+                                <div className="body">
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
                                 </div>
-                                <a href=""><i className="fa fa-upload" aria-hidden="true"> </i></a>
-                            </div>
-                            <div className="card card-assignment">
-                                <div className="status"><span><i className="fa fa-times-circle" aria-hidden="true"> </i></span></div>
-                                <div>
-                                    <h3><a href="">Opdracht 1: Persona Profiel</a></h3> Inleverdatum: 1 Maart 2017 | 7/10 punten
-                                </div>
-                                <a href=""><i className="fa fa-upload" aria-hidden="true"> </i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        } else{
+            return (
+                <div>
+                    <div id="action-button">
+                        {/*<a href="#" id="unread" className="unread active" onClick={CursusAankondigingen.handleChange.bind(this)}>Ongelezen</a>
+                         <a href="#" id="read" className="read" onClick={CursusAankondigingen.handleChange.bind(this)}>Gelezen</a>*/}
+                        <a href="#" className="btn btn-primary btn-marginright">+ Opdrachtengroep</a>
+                        <a href="#" className="btn btn-primary">+ Opdracht</a>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12 col-sm-12">
+                            <div className="assignment-group">
+                                <div className="header">
+                                    <h2><i className="fa fa-caret-down" aria-hidden="true"> </i>Taken</h2>
+                                    <span className="percent">50%</span>
+                                </div>
+
+                                <div className="body">
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                </div>
+                            </div>
+
+                            <div className="assignment-group">
+                                <div className="header">
+                                    <h2><i className="fa fa-caret-down" aria-hidden="true"> </i>Testen</h2>
+                                    <span className="percent">50%</span>
+                                </div>
+
+                                <div className="body">
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="online"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                    <Assignment title="Opdracht 1: Persona Profiel" date="" score="" status="offline"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+
     }
 }

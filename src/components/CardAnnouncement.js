@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const Announcements = React.createClass({
 
-    renderAnnouncement(announcement, i){
+    readAnnouncements(announcement, i){
         if(announcement.seen){
             return(
                 <div className="col-md-12 col-sm-12" key={i}>
@@ -25,7 +25,7 @@ const Announcements = React.createClass({
         }
 
     },
-    renderAnnouncementUnread(announcement, i){
+    unreadAnnouncements(announcement, i){
         if(!announcement.seen){
             return(
                 <div className="col-md-12 col-sm-12" key={i}>
@@ -52,17 +52,17 @@ const Announcements = React.createClass({
     render(){
         const { seen } = this.props;
 
-        if(seen === "unread"){
+        if(seen === false){
             return(
                 <div className="row">
-                    {this.props.courseAnnouncements.map(this.renderAnnouncementUnread)}
+                    {this.props.courseAnnouncements.map(this.unreadAnnouncements)}
                 </div>
             )
 
-        } else if(seen === "read"){
+        } else if(seen === true){
             return(
                 <div className="row">
-                    {this.props.courseAnnouncements.map(this.renderAnnouncement)}
+                    {this.props.courseAnnouncements.map(this.readAnnouncements)}
                 </div>
             )
         }

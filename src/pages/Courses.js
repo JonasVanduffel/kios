@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import Cursus from "../components/CourseBlock";
+import Cursus from "../components/CardCourse";
 import * as firebase from 'firebase';
 
 
@@ -24,9 +24,11 @@ class Cursussen extends Component {
     render() {
         //console.log(this.state.courses);
 
+
+
         const CourseComponents = _.map(this.props.courses, (course, i) => {
             if(course.group === "2016/2017") {
-                return <Cursus key={i} i={i} course={course} {...this.props}/>;
+                return <Cursus key={i} i={i} course={course} status="online" {...this.props}/>;
             }
         });
 
@@ -36,11 +38,27 @@ class Cursussen extends Component {
             }
         });*/
 
-        return (
-            <div id="grid" className="row">
-                {CourseComponents}
-            </div>
-        );
+
+        if(this.props.children.type === "Student"){
+            return (
+                <div id="grid" className="row">
+                    {CourseComponents}
+                </div>
+            );
+        } else{
+            return (
+                <div id="grid" className="row">
+                    {CourseComponents}
+                    {/*<div className="col-md-3 col-sm-6">
+                        <div className={"card card-course border-none"}>
+                            + Nieuwe Cursus
+                        </div>
+                    </div>*/}
+                </div>
+            );
+        }
+
+
     }
 }
 

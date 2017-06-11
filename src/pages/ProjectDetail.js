@@ -3,13 +3,13 @@ import _ from 'lodash';
 
 import Project from "../components/CardProject";
 
-class Cursussen extends Component {
+class ProjectDetail extends Component {
 
 
     render() {
-        const projectsArray = this.props.projects;
-
-        const Projects = <Project projects={projectsArray}/>;
+        const ProjectComponents = _.map(this.props.projects, (project, i) => {
+            return <Project key={i} id={project.id} title={project.title} author={project.author} likes={project.likes} imgSrc={project.imgSrc}/>;
+        });
 
 
         return (
@@ -26,8 +26,10 @@ class Cursussen extends Component {
                     </div>
                 </div>*/}
 
-                <div className="row">
-                    {Projects}
+                <div className="row projects-hidden">
+
+                    <div className="modal-overlay2"> </div>
+                    <div className="modal-overlay"> </div>
                 </div>
             </div>
 
@@ -36,4 +38,4 @@ class Cursussen extends Component {
     }
 }
 
-export default Cursussen;
+export default ProjectDetail;

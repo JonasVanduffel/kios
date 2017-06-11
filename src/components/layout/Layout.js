@@ -11,8 +11,12 @@ export default class Layout extends Component {
         this.state = { type: null };
         this.onTypeChange = this.onTypeChange.bind(this);
 
-        var userId = firebase.auth().currentUser.uid;
+        const userId = firebase.auth().currentUser.uid;
         firebase.database().ref('/users/' + userId).once('value', this.onTypeChange);
+    }
+
+    componentDidMount(){
+
     }
 
     onTypeChange(data){

@@ -38,6 +38,16 @@ export default class MobileNav extends Component {
                 </nav>
             )
         } else{
+            if(cursus){
+                return (
+                    <nav id="mobile-nav-main">
+                        <Link to={"/cursussen"}>
+                            <img src={require('./../../assets/Glyph/Light/Back.svg')} alt="Terug"/>
+                        </Link>
+                        <h3>{tit}</h3>
+                    </nav>
+                )
+            }
 
             return (
                 <nav id="mobile-nav-main">

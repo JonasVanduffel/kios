@@ -54,9 +54,12 @@ class Signup extends Component {
                     <h1>KIOS</h1>
 
                     <form>
-                        <input id="txtName" type="name" placeholder="Volledige naam"/>
-                        <input id="txtEmail" type="email" placeholder="E-mailadres"/>
-                        <input id="txtPassword" type="password" placeholder="Wachtwoord"/>
+                        <label>Volledige naam</label>
+                        <input id="txtName" type="name"/>
+                        <label>E-mail</label>
+                        <input id="txtEmail" type="email"/>
+                        <label>Wachtwoord</label>
+                        <input id="txtPassword" type="password"/>
                         <a href="#" className="btn btn-secondary" id="btnSignup">Registreren</a>
                     </form>
 

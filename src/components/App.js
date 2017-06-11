@@ -7,6 +7,7 @@ function mapStateToProps(state){
         courses: state.courses,
         announcements: state.announcements,
         schedule: state.schedule,
+        projects: state.projects,
         type: "Student"
     }
 }

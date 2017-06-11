@@ -48,8 +48,8 @@ export default class SubNav extends Component {
                 return (
                     <nav>
                         <ul>
-                            <Link url={`/cursussen/algemeen`} title="Alle projecten"/>
-                            <Link url={`/cursussen/`} title="Mijn projecten"/>
+                            <Link url={`/inspiratie`} title="Alle projecten"/>
+                            <Link url={`/inspiratie/mijn`} title="Mijn projecten"/>
                         </ul>
                     </nav>
                 )

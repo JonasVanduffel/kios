@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 class Kalender extends Component {
     render() {
         return (
-            <span>Niet beschikbaar in dit prototype.</span>
+            <h3 id="not-available">Niet beschikbaar in dit prototype.</h3>
         );
     }
 }

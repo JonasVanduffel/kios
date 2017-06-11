@@ -39,11 +39,13 @@ class Login extends Component {
         return (
             <div id="login">
                 <div id="login-wrapper">
-                    <h1>KIOS</h1>
+                    <img src={require('./../../assets/kios-logo.svg')} alt="" />
 
                     <form>
-                        <input id="txtEmail" type="email" placeholder="E-mailadres"/>
-                        <input id="txtPassword" type="password" placeholder="Wachtwoord"/>
+                        <label>E-mail</label>
+                        <input id="txtEmail" type="email"/>
+                        <label>Wachtwoord</label>
+                        <input id="txtPassword" type="password"/>
                         <a href="#" className="btn btn-secondary" id="btnLogin">Inloggen</a>
                     </form>
 

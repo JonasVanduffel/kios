@@ -3,7 +3,7 @@ import React  from 'react';
 const ScheduleToday = React.createClass({
     renderLesson(lesson, i){
         return(
-            <div className="les" key={i}>
+            <div className="lesson" key={i}>
                 <div>
                     <span className="title">{lesson.title}</span>
                     <br/>

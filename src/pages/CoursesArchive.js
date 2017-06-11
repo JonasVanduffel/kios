@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import Cursus from "../components/CourseBlock";
+import Cursus from "../components/CardCourse";
 
 class CursussenArchive extends Component {
     constructor(){

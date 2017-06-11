@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import * as firebase from 'firebase';
 
+var ReactGridLayout = require('react-grid-layout');
+
 //Import components
-import Score from "../components/dashboard/CompScore";
-import Course from "../components/dashboard/CompFavCourses";
+import Score from "../components/dashboard/ComponentScore";
+import Course from "../components/dashboard/ComponentFavCourse";
+import Deadline from "../components/dashboard/ComponentDeadline";
 
 //Import cards
-import Schedule from "../components/dashboard/CompToday";
-import Card from "../components/dashboard/Card";
+import Schedule from "../components/dashboard/ComponentToday";
+import Card from "../components/dashboard/DashboardCard";
 
 class Dashboard extends Component {
     writeUserData(){
-        let user = firebase.auth().currentUser;
-        var database = firebase.database();
+        const user = firebase.auth().currentUser;
+        const database = firebase.database();
         database.ref('users/' + user.uid).set({
             courses: [
                 {
@@ -102,7 +105,45 @@ class Dashboard extends Component {
     }
 
    componentWillMount(){
-        this.setState({edit: false});
+       const user = firebase.auth().currentUser;
+       const database = firebase.database();
+       const ref = database.ref('/users/' + user.uid);
+
+       this.setState({edit: false});
+
+       /*database.ref('users/' + user.uid).set({
+           type: "Docent"
+       });*/
+
+
+       ref.once('value', setData);
+
+       function setData(data){
+           if(data.val()){
+
+           } else{
+               database.ref('users/' + user.uid).set({
+                   type: "Student"
+               });
+           }
+       }
+
+       /*var ref = database.ref('/users/' + user.uid);
+
+
+       function gotData(data){
+           var data = data.val();
+           var c = data.type;
+           if(data){
+               console.log("JA");
+           } else{
+               database.ref('users/' + user.uid).set({
+                   type: "Student"
+               });
+           }
+       }*/
+
+
        /* let database;
         var userId = firebase.auth().currentUser.uid;
 
@@ -135,33 +176,30 @@ class Dashboard extends Component {
 
     render() {
         const lessons = this.props.schedule || [];
-        const { type } = this.props;
-
+        const courses = this.props.courses;
+        const type = this.props.children.type;
         let ScheduleToday;
 
-        const CourseComponents = _.map(this.props.courses, (course, i) => {
-            if(course.favorite === true){
-                return <Course key={i} i={i} course={course} {...this.props}/>;
-            }
-        });
-
         /*const Scores = _.map(student.courses, (course, index) => {
-            const scores = _.map(course.result, (score) => {
-                return score;
-            });
+         const scores = _.map(course.result, (score) => {
+         return score;
+         });
 
-            return(
-                scores
-            )
-        });
-        const NewScores = _.map(Scores[studentId], (result, index) => {
-            if(!result.seen){
-                return(
-                    <Score key={index} title={result.title} score={result.score} {...result}/>
-                )
-            }
-        });
-*/
+         return(
+         scores
+         )
+         });
+         const NewScores = _.map(Scores[studentId], (result, index) => {
+         if(!result.seen){
+         return(
+         <Score key={index} title={result.title} score={result.score} {...result}/>
+         )
+         }
+         });
+         */
+
+        const FavouriteCourses = <Course courses={courses}/>;
+        const RandomProject = this.props.projects[Math.floor(Math.random()*this.props.projects.length)].imgSrc;
 
         if(lessons.length === 0){
             ScheduleToday = (
@@ -178,74 +216,116 @@ class Dashboard extends Component {
 
         if(type === "Student"){
             return (
-                <div>
-                    <div className="row js-grid">
-                        <Card title="Lessen van vandaag" src="Calendar.svg" editable={this.state.edit}>
-                            {ScheduleToday}
-                        </Card>
-
-                        <Card id="new-scores" title="Nieuwe scores" src="Score.svg" editable={this.state.edit}>
-                            <Score title="Opdracht 1: Persona Profiel" score="17"/>
-                            <Score title="Boekbespreking" score="09"/>
-                            <Score title="Onderzoek bachelorproef" score="17"/>
-                            <Score title="Navigatiestructuur" score="Feedback"/>
-                        </Card>
-
-                        <Card title="Volgende deadline" src="Calendar.svg" more="" editable={this.state.edit}>
-                            <div id="testt">
-                                <img src={require('../assets/Glyph/circle.svg')} alt=""/>
-                                <div id="deadline">
-                                    <span id="deadline-title">Opdracht 1: Persona Profiel</span>
-                                    <span id="deadline-time">Woensdag 25 april</span>
+                <div className="masonry-layout">
+                    <div className="column">
+                        <div className="panel">
+                            <Card  title="Lessen van vandaag" src="Calendar.svg" editable={this.state.edit}>
+                                {ScheduleToday}
+                            </Card>
+                        </div>
+                        <div className="panel ">
+                            <Card title="Favoriete cursussen" src="Course.svg" hasMore="/cursussen" editable={this.state.edit}>
+                                {FavouriteCourses}
+                            </Card>
+                        </div>
+                        <div className="panel">
+                            <Card title="Volgende deadline" src="Calendar.svg" hasMore="" editable={this.state.edit}>
+                                <div id="testt">
+                                    <img src={require('../assets/Glyph/circle.svg')} alt=""/>
+                                    <div id="deadline">
+                                        <span id="deadline-title">Opdracht 1: Persona Profiel</span>
+                                        <span id="deadline-time">Woensdag 25 april</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </Card>
-
-                        <Card title="Project van de dag" src="Firework.svg" more="/inspiratie" editable={this.state.edit}>
-                            <img src={require('../assets/inspiration-example.png')} alt="" />
-                        </Card>
-
-                        <Card title="Favoriete cursussen" src="Course.svg" more="/cursussen" editable={this.state.edit}>
-                            {CourseComponents}
-                        </Card>
+                            </Card>
+                        </div>
+                    </div>
+                    <div className="column">
+                        <div className="panel">
+                            <Card title="Opkomende deadlines" src="Calendar.svg" hasMore="" editable={this.state.edit}>
+                                <Deadline title="Statische website (HTML/CSS/JS)" date="Gisteren"/>
+                                <Deadline title="Persona profiel" date="Vandaag"/>
+                                <Deadline title="Storyboard video" date="5/5/2017"/>
+                            </Card>
+                        </div>
+                        <div className="panel">
+                            <Card id="new-scores" title="Nieuwe scores" src="Score.svg" editable={this.state.edit}>
+                                <Score title="Opdracht 1: Persona Profiel" score="17"/>
+                                <Score title="Boekbespreking" score="09"/>
+                                <Score title="Onderzoek bachelorproef" score="17"/>
+                                <Score title="Navigatiestructuur" score="Feedback"/>
+                            </Card>
+                        </div>
                     </div>
 
-                    <a href="#" id="editCards" className="btn btn-primary btn-edit" onClick={Dashboard.handleChange.bind(this)}>
+                    <div className="column">
+                        <div className="panel">
+                            <Card title="Project van de dag" src="Firework.svg" hasMore="/inspiratie" editable={this.state.edit}>
+                                <img id="dashboard-project" src={require('../assets/projects/' + RandomProject)} alt="" />
+                            </Card>
+                        </div>
+                    </div>
+                    <a href="#" id="editCards" className="btn btn-primary btn-edit btn-small" onClick={Dashboard.handleChange.bind(this)}>
                         Bewerken
-                    </a>
-
-                    <a href="#" id="editCards" className="btn btn-primary btn-edit" onClick={this.writeUserData.bind(this)}>
-                        Add
                     </a>
                 </div>
             );
         } else{
             return (
-                <div>
-                    <div className="row js-grid">
-                        <Card title="Volgende deadline" src="Calendar.svg" more="">
-                            <div id="testt">
-                                <img src={require('../assets/Glyph/circle.svg')} alt=""/>
-                                <div id="deadline">
-                                    <span id="deadline-title">Opdracht 1: Persona Profiel</span>
-                                    <span id="deadline-time">Woensdag 25 april</span>
+                <div className="masonry-layout">
+                    <div className="column">
+                        <div className="panel">
+                            <Card  title="Lessen van vandaag" src="Calendar.svg" editable={this.state.edit}>
+                                {ScheduleToday}
+                            </Card>
+                        </div>
+                        <div className="panel ">
+                            <Card title="Favoriete cursussen" src="Course.svg" hasMore="/cursussen" editable={this.state.edit}>
+                                {FavouriteCourses}
+                            </Card>
+                        </div>
+                        <div className="panel">
+                            <Card title="Volgende deadline" src="Calendar.svg" hasMore="" editable={this.state.edit}>
+                                <div id="testt">
+                                    <img src={require('../assets/Glyph/circle.svg')} alt=""/>
+                                    <div id="deadline">
+                                        <span id="deadline-title">Opdracht 1: Persona Profiel</span>
+                                        <span id="deadline-time">Woensdag 25 april</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </Card>
-
-                        <Card title="Project van de dag" src="Firework.svg" more="/inspiratie">
-                            <img src={require('../assets/inspiration-example.png')} alt="" />
-                        </Card>
-
-                        <Card title="Favoriete cursussen" src="Course.svg" more="/cursussen">
-                            {CourseComponents}
-                        </Card>
+                            </Card>
+                        </div>
+                    </div>
+                    <div className="column">
+                        <div className="panel">
+                            <Card title="Opkomende deadlines" src="Calendar.svg" hasMore="" editable={this.state.edit}>
+                                <Deadline title="Statische website (HTML/CSS/JS)" dl="Gisteren"/>
+                                <Deadline title="Persona profiel" dl="Vandaag"/>
+                                <Deadline title="Storyboard video" dl="5/5/2017"/>
+                            </Card>
+                        </div>
+                        <div className="panel">
+                            <Card id="new-scores" title="Nieuwe scores" src="Score.svg" editable={this.state.edit}>
+                                <Score title="Opdracht 1: Persona Profiel" score="17"/>
+                                <Score title="Boekbespreking" score="09"/>
+                                <Score title="Onderzoek bachelorproef" score="17"/>
+                                <Score title="Navigatiestructuur" score="Feedback"/>
+                            </Card>
+                        </div>
                     </div>
 
-                    <a href="#" id="editCards" className="btn btn-primary btn-edit" onClick={Dashboard.handleChange.bind(this)}>
+                    <div className="column">
+                        <div className="panel">
+                            <Card title="Project van de dag" src="Firework.svg" hasMore="/inspiratie" editable={this.state.edit}>
+                                <img id="dashboard-project" src={require('../assets/projects/' + RandomProject)} alt="" />
+                            </Card>
+                        </div>
+                    </div>
+                    <a href="#" id="editCards" className="btn btn-primary btn-edit btn-small" onClick={Dashboard.handleChange.bind(this)}>
                         Bewerken
                     </a>
                 </div>
+
             );
         }
 

@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import Announcements from '../../components/AnnouncementBlock';
+import Announcements from '../../components/CardAnnouncement';
 
 export default class CursusAankondigingen extends Component {
     constructor(props) {
         super(props);
-        this.state = {read: "unread"};
+        this.state = {seen: false};
     }
 
-    static handleChange(e){
-        const query = e.target.className;
-        this.setState({read: query});
+    static handleChange(){
+        if(this.state.seen === false){
+            this.setState({seen: true});
+        } else this.setState({seen: false});
     }
 
     componentDidUpdate(){
-        switch(this.state.read){
-            case "read":
+        switch(this.state.seen){
+            case true:
                 document.getElementById("read").classList.add('active');
                 document.getElementById("unread").classList.remove('active');
                 break;
-            case "unread":
+            case false:
                 document.getElementById("unread").classList.add('active');
                 document.getElementById("read").classList.remove('active');
                 break;
@@ -29,37 +30,25 @@ export default class CursusAankondigingen extends Component {
 
     render() {
         const { courseId } = this.props.params;
-        const { type } = this.props;
 
-        console.log("typeee: " + type);
+        const announcements = this.props.announcements[courseId] || [];
 
-        const courseAnnouncements = this.props.announcements[courseId] || [];
-
-
-        if(courseAnnouncements.length === 0){
+        if(announcements.length === 0){
             return (
-                <span>Er zijn geen aankondigingen voor deze cursus.</span>
+                <span>Er zijn geen aankondigingen binnen deze cursus.</span>
             )
         } else{
             return (
                 <div>
-                    {/*<div id="read">
-                        <a href="#" className="unread" onClick={CursusAankondigingen.handleChange.bind(this)}>Ongelezen</a>
-                        <a href="#" className="read" onClick={CursusAankondigingen.handleChange.bind(this)}>Gelezen</a>
-                    </div>*/}
-
                     <div id="action-button">
                         <div id="switch-buttons">
-                            <a href="#" id="unread" className="unread active" onClick={CursusAankondigingen.handleChange.bind(this)}>Ongelezen</a>
-                            <a href="#" id="read" className="read" onClick={CursusAankondigingen.handleChange.bind(this)}>Gelezen</a>
+                            <a href="#" id="unread" className="false active" onClick={CursusAankondigingen.handleChange.bind(this)}>Ongelezen</a>
+                            <a href="#" id="read" className="true" onClick={CursusAankondigingen.handleChange.bind(this)}>Gelezen</a>
                         </div>
                     </div>
-
-                    <Announcements courseAnnouncements={courseAnnouncements} seen={this.state.read}/>
+                    <Announcements courseAnnouncements={announcements} seen={this.state.seen}/>
                 </div>
             );
         }
-
-
     }
 }

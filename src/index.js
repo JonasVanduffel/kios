@@ -8,6 +8,8 @@ import store, { history } from './store';
 
 //Import CSS
 import './css/style.css';
+import './../node_modules/react-grid-layout/css/styles.css';
+import './../node_modules/react-resizable/css/styles.css';
 
 //Import Components
 import App from './components/App';
@@ -28,6 +30,7 @@ import CourseResults from './pages/course/CourseResults';
 import CourseECTS from './pages/course/CourseECTS';
 
 import Inspiration from './pages/Inspiration';
+import ProjectDetail from './pages/ProjectDetail';
 import Groups from './pages/Groups';
 import EmptyPage from './pages/EmptyPage';
 import Account from './pages/Account';
@@ -83,6 +86,7 @@ const routes = (
                 <Route path="cursussen/:courseId/ects" component={CourseECTS} onEnter={requireAuth}> </Route>
 
                 <Route path="inspiratie" component={Inspiration} title={"Community / inspiratie"} onEnter={requireAuth}> </Route>
+                <Route path="inspiratie/:projectId" component={ProjectDetail} onEnter={requireAuth}> </Route>
 
                 <Route path="groepen" component={Groups} title={"Groepen"} onEnter={requireAuth}> </Route>
                 <Route path="groepen/:groupId" component={Groups} title={"Groepen"} onEnter={requireAuth}> </Route>

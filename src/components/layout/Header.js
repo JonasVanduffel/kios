@@ -53,7 +53,7 @@ export default class HeaderNew extends Component{
 
                         <div id="search-popup">
                             <Link to="#" id="close"><i className="fa fa-close" aria-hidden="true"/></Link>
-                            <span>Resultate:</span>
+                            <span>Resultaten:</span>
                             <h4 id="search-term">Zoeken</h4>
                         </div>
 
