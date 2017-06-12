@@ -992,7 +992,7 @@ ul li {
 
 #main-wrapper #wrapper-header #welcome,
 #main-wrapper #wrapper-header nav {
-  padding: 13px 30px;
+  padding: 11px 30px;
   background-color: #FF6131;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08); }
 
@@ -1009,7 +1009,7 @@ ul li {
   color: white;
   font-weight: 500;
   font-size: 14px;
-  padding-bottom: 11px; }
+  padding-bottom: 9px; }
 
 #main-wrapper #wrapper-header #welcome a.active,
 #main-wrapper #wrapper-header nav a.active {
@@ -1022,7 +1022,7 @@ ul li {
 
 #main-wrapper main {
   width: 100%;
-  padding: 153px 30px 30px;
+  padding: 135px 30px 30px;
   -webkit-animation: fadein 1.5s;
   /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1.5s;
@@ -1312,14 +1312,14 @@ ul li {
   font-size: 12px; }
 
 #main-wrapper main .card.card-message .content p {
-  width: 70%; }
+  width: 80%; }
 
 @media (max-width: 768px) {
   #main-wrapper main .card.card-message .content p {
     width: 100%; } }
 
 #main-wrapper main .card.card-course-files {
-  padding: 30px;
+  padding: 25px 30px;
   margin-bottom: 15px; }
 
 @media (max-width: 768px) {
@@ -1328,10 +1328,10 @@ ul li {
 
 #main-wrapper main .card.card-course-files section h3 {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  color: #111926; }
 
 #main-wrapper main .card.card-course-files section h3 a {
-  color: #111926;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
@@ -1354,7 +1354,10 @@ ul li {
   background-color: white;
   display: flex;
   margin: 15px 0 0 0;
-  padding: 0 0 0 20px; }
+  padding: 0 0 0 30px; }
+
+#main-wrapper main .card.card-course-files section .files a {
+  color: rgba(17, 25, 38, 0.8); }
 
 #main-wrapper main .card.card-course-files .assignments,
 #main-wrapper main .card.card-course-files .files {
@@ -1415,10 +1418,13 @@ ul li {
   content: '|';
   margin: 0 10px; }
 
-#main-wrapper main .card.card-assignment .fa-upload {
+#main-wrapper main .card.card-assignment .action {
   position: absolute;
   right: 15px;
   top: 25px; }
+
+#main-wrapper main .card.card-assignment .action .fa {
+  margin-right: 5px; }
 
 #main-wrapper main .card.card-group.group-post {
   display: flex;
@@ -1463,20 +1469,43 @@ ul li {
   margin-right: 20px; }
 
 #main-wrapper main .assignment-group {
-  margin-bottom: 25px; }
+  margin-bottom: 30px; }
 
 #main-wrapper main .assignment-group h2 {
-  display: inline-block;
-  vertical-align: middle; }
+  display: flex;
+  align-items: center;
+  color: #111926;
+  margin-bottom: 15px; }
 
-#main-wrapper main .assignment-group .percent {
-  margin-left: 10px;
-  color: rgba(17, 25, 38, 0.8); }
+#main-wrapper main .assignment-group h2 a {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
-#main-wrapper main .assignment-group .percent:before {
+@media (max-width: 768px) {
+  #main-wrapper main .assignment-group h2 img {
+    display: none; } }
+
+#main-wrapper main .assignment-group h2 img {
+  margin-left: auto;
+  width: 24px; }
+
+#main-wrapper main .assignment-group h2::before {
+  font-family: FontAwesome;
+  content: '\f0d7';
+  font-size: 12px;
+  margin-right: 15px; }
+
+#main-wrapper main .assignment-group h2 .percent {
+  margin-left: 20px;
+  color: rgba(17, 25, 38, 0.8);
+  font-size: 12px;
+  font-weight: 400; }
+
+#main-wrapper main .assignment-group h2 .percent:before {
   content: '('; }
 
-#main-wrapper main .assignment-group .percent:after {
+#main-wrapper main .assignment-group h2 .percent:after {
   content: ' van het totaal)'; }
 
 #main-wrapper main .assignment-group .header {

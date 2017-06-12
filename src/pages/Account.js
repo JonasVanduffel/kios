@@ -59,6 +59,7 @@ class Cursussen extends Component {
                     <input type="email" id="txtEmail"/>
 
                     <label>Foto</label>
+                    <small>Willekeurige foto: https://source.unsplash.com/random</small>
                     <input type="email" id="txtPhotoUrl"/>
 
                     <label>Account type</label>

@@ -1,10 +1,10 @@
 const courses = [
     {
         "id": "0001",
-        "title": "iOS Design & Development",
-        "docent": "Philip Perez",
+        "title": "Final Work",
+        "docent": "Ruben Cools",
         "color": "green",
-        "favorite": false,
+        "favorite": true,
         "group" : "2016/2017",
     },
     {

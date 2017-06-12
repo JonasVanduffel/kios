@@ -1,163 +1,98 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 
+import File from '../../components/CardFile';
 
 export default class CursusDocumenten extends Component {
     constructor(props) {
         super(props);
-        this._toggleDiv = this._toggleDiv.bind(this)
     }
 
-    _toggleDiv() {
-        var content = $(this.refs['toggle-div']);
-        console.log(content);
-        content.slideToggle();
+    _toggleDiv(e) {
+        let thizz = $(e.target.parentNode.nextSibling);
+        console.log(thizz);
+        thizz.slideToggle("fast");
     }
 
     render() {
-        // console.log(this.props);
+        let icon = "Download.svg";
+        let actionButton;
 
-        if(this.props.children.type === "Student"){
-            return (
-                <div>
-                    <div id="action-button" className="no-mobile">
-                        <a href={require('../../assets/course-files.zip')} className="btn btn-primary">Download alle bestanden</a>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-md-12 col-sm-12">
-                            <div className="card card-course-files">
-                                <section>
-                                    <h3>
-                                        <a href="#" onClick={this._toggleDiv}>1. Introles - Dat is design + ID onderzoek</a>
-                                        <img src={require('../../assets/Glyph/Dark/Download.svg')} alt="" />
-                                    </h3>
-                                    <div className="files" ref="toggle-div">
-                                        <ul>
-                                            <li>
-                                                <i className="fa fa-file-pdf-o" aria-hidden="true"> </i>
-                                                <a href="">0_Intro_Interaction Design Theory.pptx (4,119 MB)</a>
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-file-word-o" aria-hidden="true"> </i>
-                                                <a href="">Bestand 1_ID onderzoeksmethoden en-proces.pptx (4,119 MB)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="card card-course-files">
-                                <section>
-                                    <h3>
-                                        <a href="#" onClick={this._toggleDiv}>2 en 3. Designen in een maatschappelijke context: context mapping</a>
-                                        <img src={require('../../assets/Glyph/Dark/Download.svg')} alt="" />
-                                    </h3>
-                                    <div className="files">
-                                        <ul>
-                                            <li>
-                                                <i className="fa fa-file-pdf-o" aria-hidden="true"> </i>
-                                                <a href="">3_Contextmapping.pptx (12,875 MB)</a>
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-file-word-o" aria-hidden="true"> </i>
-                                                <a href="">2_Experience_Context cirkels.pptx (4,701 MB)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="card card-course-files">
-                                <section>
-                                    <h3>
-                                        <a href="#" onClick={this._toggleDiv}>4. User Centered Design: Persona</a>
-                                        <img src={require('../../assets/Glyph/Dark/Download.svg')} alt="" />
-                                    </h3>
-                                    <div className="files">
-                                        <ul>
-                                            <li>
-                                                <i className="fa fa-file-pdf-o" aria-hidden="true"> </i>
-                                                <a href="">4_Persona_empathy map.pptx (3,674 MB)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        } else{
-            return (
-                <div>
+        switch(this.props.children.type){
+            case "Student":
+                icon = "Download.svg";
+                actionButton = (
+                    null
+                );
+                break;
+            case "Docent":
+                icon = "Settings.svg";
+                actionButton = (
                     <div id="action-button" className="no-mobile">
                         <a href="#" className="btn btn-primary">+ Bestanden</a>
                     </div>
+                );
+                break;
+        }
 
-                    <div className="row">
-                        <div className="col-md-12 col-sm-12">
-                            <div className="card card-course-files">
-                                <section>
+        return (
+            <div>
+                {actionButton}
+
+                <div className="row">
+                    <div className="col-md-12 col-sm-12">
+
+                        <div className="card card-course-files">
+                            <section>
+                                <a href="#" onClick={this._toggleDiv}>
                                     <h3>
-                                        <a href="#" onClick={this._toggleDiv}>1. Introles - Dat is design + ID onderzoek</a>
-                                        <img src={require('../../assets/Glyph/Dark/Settings.svg')} alt="" />
+                                        Algemeen
+                                        <img src={require(`../../assets/Glyph/Dark/${icon}`)} alt="" />
                                     </h3>
-                                    <div className="files" ref="toggle-div">
-                                        <ul>
-                                            <li>
-                                                <i className="fa fa-file-pdf-o" aria-hidden="true"> </i>
-                                                <a href="">0_Intro_Interaction Design Theory.pptx (4,119 MB)</a>
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-file-word-o" aria-hidden="true"> </i>
-                                                <a href="">Bestand 1_ID onderzoeksmethoden en-proces.pptx (4,119 MB)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="card card-course-files">
-                                <section>
+                                </a>
+
+                                <div className="files" ref="toggle-div">
+                                    <ul>
+                                        <File title="Infosessie Final Work 23 mei 2015" type="pdf"/>
+                                        <File title="Infosessie Kickoff Final Work 3/10/2016" type="pdf"/>
+                                        <File title="Infosessie onderzoekend handelen Final Work 10/10/2016" type="pdf"/>
+                                        <File title="groepsindeling Blend" type="pdf"/>
+                                        <File title="infosessie: Slides blend Verslag schrijven 27/02/2017" type="pdf"/>
+                                        <File title="Infosessie: posterpresentatie Final Work Blend 24/4/2017" type="pdf"/>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div className="card card-course-files">
+                            <section>
+                                <a href="#" onClick={this._toggleDiv}>
                                     <h3>
-                                        <a href="#" onClick={this._toggleDiv}>2 en 3. Designen in een maatschappelijke context: context mapping</a>
-                                        <img src={require('../../assets/Glyph/Dark/Settings.svg')} alt="" />
+                                        Richtlijnen
+                                        <img src={require(`../../assets/Glyph/Dark/${icon}`)} alt="" />
                                     </h3>
-                                    <div className="files">
-                                        <ul>
-                                            <li>
-                                                <i className="fa fa-file-pdf-o" aria-hidden="true"> </i>
-                                                <a href="">3_Contextmapping.pptx (12,875 MB)</a>
-                                            </li>
-                                            <li>
-                                                <i className="fa fa-file-word-o" aria-hidden="true"> </i>
-                                                <a href="">2_Experience_Context cirkels.pptx (4,701 MB)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="card card-course-files">
-                                <section>
+                                </a>
+                                <div className="files">
+                                    <ul>
+                                        <File title="Richtlijnen bachelorproef" type="pdf"/>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div className="card card-course-files">
+                            <section>
+                                <a href="#" onClick={this._toggleDiv}>
                                     <h3>
-                                        <a href="#" onClick={this._toggleDiv}>4. User Centered Design: Persona</a>
-                                        <img src={require('../../assets/Glyph/Dark/Settings.svg')} alt="" />
+                                        Bronmateriaal
+                                        <img src={require(`../../assets/Glyph/Dark/${icon}`)} alt="" />
                                     </h3>
-                                    <div className="files">
-                                        <ul>
-                                            <li>
-                                                <i className="fa fa-file-pdf-o" aria-hidden="true"> </i>
-                                                <a href="">4_Persona_empathy map.pptx (3,674 MB)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
+                                </a>
+                            </section>
                         </div>
                     </div>
                 </div>
-
-            );
-        }
-
-
+            </div>
+        );
     }
 }

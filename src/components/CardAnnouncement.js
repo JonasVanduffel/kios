@@ -5,46 +5,87 @@ const Announcements = React.createClass({
 
     readAnnouncements(announcement, i){
         if(announcement.seen){
-            return(
-                <div className="col-md-12 col-sm-12" key={i}>
-                    <div className="card card-message">
-                        <div className="avatar">
-                            <img src={require('../assets/avatar-lien.jpg')} alt="Lien" />
-                        </div>
+            if(announcement.description.length >= 256){
+                return(
+                    <div className="col-md-12 col-sm-12" key={i}>
+                        <div className="card card-message">
+                            <div className="avatar">
+                                <img src={require('../assets/avatar-ruben.jpg')} alt="Lien" />
+                            </div>
 
-                        <div className="content">
-                            <h3>{announcement.title}</h3>
-                            <span className="date">{announcement.date}</span>
-                            <p>
-                                {announcement.description}
-                            </p>
+                            <div className="content">
+                                <h3>{announcement.title}</h3>
+                                <span className="date">{announcement.date}</span>
+                                <p>
+                                    {announcement.description.substring(0, 256) + '...'}
+                                </p>
+                                <Link to=" ">Lees meer</Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )
+                )
+            } else{
+                return(
+                    <div className="col-md-12 col-sm-12" key={i}>
+                        <div className="card card-message">
+                            <div className="avatar">
+                                <img src={require('../assets/avatar-ruben.jpg')} alt="Lien" />
+                            </div>
+
+                            <div className="content">
+                                <h3>{announcement.title}</h3>
+                                <span className="date">{announcement.date}</span>
+                                <p>
+                                    {announcement.description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         }
 
     },
     unreadAnnouncements(announcement, i){
         if(!announcement.seen){
-            return(
-                <div className="col-md-12 col-sm-12" key={i}>
-                    <div className="card card-message">
-                        <div className="avatar">
-                            <img src={require('../assets/avatar-lien.jpg')} alt="Lien" />
-                        </div>
+            if(announcement.description.length >= 256){
+                return(
+                    <div className="col-md-12 col-sm-12" key={i}>
+                        <div className="card card-message">
+                            <div className="avatar">
+                                <img src={require('../assets/avatar-ruben.jpg')} alt="Lien" />
+                            </div>
 
-                        <div className="content">
-                            <h3>{announcement.title}</h3>
-                            <span className="date">{announcement.date}</span>
-                            <p>
-                                {announcement.description}
-                            </p>
-                            <Link to=" ">Lees meer</Link>
+                            <div className="content">
+                                <h3>{announcement.title}</h3>
+                                <span className="date">{announcement.date}</span>
+                                <p>
+                                    {announcement.description.substring(0, 256) + '...'}
+                                </p>
+                                <Link to=" ">Lees meer</Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )
+                )
+            } else{
+                return(
+                    <div className="col-md-12 col-sm-12" key={i}>
+                        <div className="card card-message">
+                            <div className="avatar">
+                                <img src={require('../assets/avatar-ruben.jpg')} alt="Lien" />
+                            </div>
+
+                            <div className="content">
+                                <h3>{announcement.title}</h3>
+                                <span className="date">{announcement.date}</span>
+                                <p>
+                                    {announcement.description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         }
 
     },
