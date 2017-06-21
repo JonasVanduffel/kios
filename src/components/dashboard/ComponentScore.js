@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class ComponentScore extends Component{
     /*removeScore(e){
@@ -26,7 +27,7 @@ export default class ComponentScore extends Component{
         return(
             <div className="result">
                 <span className={"score " + scoreText}>{score}{twenty}</span>
-                <span className="course">{title}</span>
+                <Link to=""><span className="course">{title}</span></Link>
                 {/*<span className="close"><a onClick={this.removeScore.bind(this)}><img src={require('../../assets/Glyph/_misc/Close.svg')} alt="" /></a></span>*/}
             </div>
         )

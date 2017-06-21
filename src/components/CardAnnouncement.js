@@ -15,7 +15,7 @@ const Announcements = React.createClass({
 
                             <div className="content">
                                 <h3>{announcement.title}</h3>
-                                <span className="date">{announcement.date}</span>
+                                <span className="date">{announcement.date} om {announcement.time} door {announcement.docent}</span>
                                 <p>
                                     {announcement.description.substring(0, 256) + '...'}
                                 </p>
@@ -34,7 +34,7 @@ const Announcements = React.createClass({
 
                             <div className="content">
                                 <h3>{announcement.title}</h3>
-                                <span className="date">{announcement.date}</span>
+                                <span className="date">{announcement.date} om {announcement.time} door {announcement.docent}</span>
                                 <p>
                                     {announcement.description}
                                 </p>
@@ -58,7 +58,7 @@ const Announcements = React.createClass({
 
                             <div className="content">
                                 <h3>{announcement.title}</h3>
-                                <span className="date">{announcement.date}</span>
+                                <span className="date">{announcement.date} om {announcement.time} door {announcement.docent}</span>
                                 <p>
                                     {announcement.description.substring(0, 256) + '...'}
                                 </p>
@@ -77,7 +77,7 @@ const Announcements = React.createClass({
 
                             <div className="content">
                                 <h3>{announcement.title}</h3>
-                                <span className="date">{announcement.date}</span>
+                                <span className="date">{announcement.date} om {announcement.time} door {announcement.docent}</span>
                                 <p>
                                     {announcement.description}
                                 </p>

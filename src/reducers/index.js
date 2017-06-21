@@ -5,7 +5,8 @@ import courses from './courses';
 import announcements from './announcements';
 import schedule from './schedule';
 import projects from './projects';
+import groups from './groups';
 
-const rootReducer = combineReducers({courses, announcements, schedule, projects, routing: routerReducer});
+const rootReducer = combineReducers({courses, announcements, schedule, projects, groups, routing: routerReducer});
 
 export default rootReducer;

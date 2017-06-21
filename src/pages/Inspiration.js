@@ -3,28 +3,30 @@ import _ from 'lodash';
 
 import Project from "../components/CardProject";
 
-class Cursussen extends Component {
+class Inspiration extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {switch: "datum"};
+    }
+
+    static handleChange(){
+        if(this.state.switch === "datum"){
+            this.setState({switch: "type"});
+        } else this.setState({switch: "datum"});
+    }
 
 
     render() {
         const projectsArray = this.props.projects;
-
         const Projects = <Project projects={projectsArray}/>;
-
 
         return (
             <div>
-                {/*<div id="action-button">
-                    Sorteren op:
-                    <div>
-                        <a href="" className="btn btn-primary btn-small btn-left btn-marginright">Alle jaren</a>
-                        <a href="" className="btn btn-primary btn-small btn-left">Alle jaren</a>
-                    </div>
-                    <div id="switch-buttons">
-                        <a href="#" id="unread" className="unread active">Datum</a>
-                        <a href="#" id="read" className="read">Favorieten</a>
-                    </div>
+                {/*<div id="action-button-left">
+                    <a href="" className="btn btn-primary btn-marginright btn-select">Alle jaren</a>
+                    <a href="" className="btn btn-primary">Alle jaren</a>
                 </div>*/}
+
 
                 <div className="row">
                     {Projects}
@@ -36,4 +38,4 @@ class Cursussen extends Component {
     }
 }
 
-export default Cursussen;
+export default Inspiration;

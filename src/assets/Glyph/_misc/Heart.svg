@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Project/Project-Hover" transform="translate(-243.000000, -173.000000)" fill="#FE2E40">
+            <g id="Likes" transform="translate(243.000000, 156.000000)">
+                <path d="M6,29 L5.16,28.0869565 C2.04,25.0869565 5.68434189e-14,23.0652174 5.68434189e-14,20.5869565 C5.68434189e-14,18.5652174 1.44,17 3.3,17 C4.32,17 5.34,17.5217391 6,18.3695652 C6.66,17.5217391 7.68,17 8.7,17 C10.56,17 12,18.5652174 12,20.5869565 C12,23.0652174 9.96,25.0869565 6.84,28.0869565 L6,29 Z" id="Heart"></path>
+            </g>
+        </g>
+    </g>
+</svg>

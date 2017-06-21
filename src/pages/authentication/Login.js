@@ -41,6 +41,7 @@ class Login extends Component {
                 <div id="login-wrapper">
                     <img src={require('./../../assets/kios-logo.svg')} alt="" />
 
+                    {/*<h4>Demo binnenkort online...</h4>*/}
                     <form>
                         <label>E-mail</label>
                         <input id="txtEmail" type="email"/>

@@ -7,7 +7,7 @@ export default class SubNav extends Component {
     render() {
         let user = firebase.auth().currentUser;
 
-        const { id, title } = this.props;
+        const { id, title, cursus, groep } = this.props;
         const d = new Date();
         const n = d.getHours();
 
@@ -21,6 +21,19 @@ export default class SubNav extends Component {
             greeting = "Goedenavond";
         } else if(n >= "24" && n < "5"){
             greeting = "Goedenacht";
+        }
+
+        if(groep){
+            return (
+                <nav>
+                    <ul>
+                        <Link url={`/groepen/${id}/nieuwsfeed`} title="Nieuwsfeed"/>
+                        <Link url={`/groepen/${id}/media`} title="Media"/>
+                        <Link url={`/groepen/${id}/documenten`} title="Documenten"/>
+                        <Link url={`/groepen/${id}/personen`} title="Personen"/>
+                    </ul>
+                </nav>
+            )
         }
 
         switch(title){
@@ -59,9 +72,9 @@ export default class SubNav extends Component {
                 return (
                     <nav>
                         <ul>
-                            <Link url={`/cursussen/algemeen`} title="Algemeen"/>
-                            <Link url={`/cursussen/`} title="Academiejaar 2016-2017"/>
-                            <Link url={`/cursussen/${id}/opdrachten`} title="Academiejaar 2015-2016"/>
+                            <Link url={`/groepen/`} title="Academiejaar 2016-2017"/>
+                            <Link url={`/groepen/algemeen`} title="Algemeen"/>
+                            <Link url={`/groepen/archief`} title="Archief"/>
                         </ul>
                     </nav>
                 )

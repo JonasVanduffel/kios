@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import * as firebase from 'firebase';
+import { browserHistory } from 'react-router';
 
 var ReactGridLayout = require('react-grid-layout');
 
@@ -120,7 +121,6 @@ class Dashboard extends Component {
 
        function setData(data){
            if(data.val()){
-
            } else{
                database.ref('users/' + user.uid).set({
                    type: "Student"
@@ -199,7 +199,8 @@ class Dashboard extends Component {
          */
 
         const FavouriteCourses = <Course courses={courses}/>;
-        const RandomProject = this.props.projects[Math.floor(Math.random()*this.props.projects.length)].imgSrc;
+        //const RandomProject = this.props.projects[Math.floor(Math.random()*this.props.projects.length)].imgSrc;
+        const RandomProject = this.props.projects[4].imgSrc;
 
         if(lessons.length === 0){
             ScheduleToday = (
@@ -229,7 +230,7 @@ class Dashboard extends Component {
                             </Card>
                         </div>
                         <div className="panel">
-                            <Card title="Volgende deadline" src="Calendar.svg" hasMore="" editable={this.state.edit}>
+                            <Card title="Volgende deadline" src="Deadline.svg" hasMore="" editable={this.state.edit}>
                                 <div id="testt">
                                     <img src={require('../assets/Glyph/circle.svg')} alt=""/>
                                     <div id="deadline">
@@ -242,10 +243,10 @@ class Dashboard extends Component {
                     </div>
                     <div className="column">
                         <div className="panel">
-                            <Card title="Opkomende deadlines" src="Calendar.svg" hasMore="" editable={this.state.edit}>
-                                <Deadline title="Statische website (HTML/CSS/JS)" date="Gisteren"/>
-                                <Deadline title="Persona profiel" date="Vandaag"/>
-                                <Deadline title="Storyboard video" date="5/5/2017"/>
+                            <Card title="Opkomende deadlines" src="Deadline.svg" hasMore="" editable={this.state.edit}>
+                                <Deadline title="Indienen eerste digitale versie poster" date="Vandaag" icon="Check"/>
+                                <Deadline title="Eindpresentatie bachelorproef" date="Morgen" icon="Uncheck"/>
+                                <Deadline title="Promotievideo" date="31/6/2017" icon="Uncheck"/>
                             </Card>
                         </div>
                         <div className="panel">
@@ -279,45 +280,20 @@ class Dashboard extends Component {
                                 {ScheduleToday}
                             </Card>
                         </div>
+                    </div>
+                    <div className="column">
                         <div className="panel ">
                             <Card title="Favoriete cursussen" src="Course.svg" hasMore="/cursussen" editable={this.state.edit}>
                                 {FavouriteCourses}
                             </Card>
                         </div>
-                        <div className="panel">
-                            <Card title="Volgende deadline" src="Calendar.svg" hasMore="" editable={this.state.edit}>
-                                <div id="testt">
-                                    <img src={require('../assets/Glyph/circle.svg')} alt=""/>
-                                    <div id="deadline">
-                                        <span id="deadline-title">Opdracht 1: Persona Profiel</span>
-                                        <span id="deadline-time">Woensdag 25 april</span>
-                                    </div>
-                                </div>
-                            </Card>
-                        </div>
                     </div>
                     <div className="column">
                         <div className="panel">
-                            <Card title="Opkomende deadlines" src="Calendar.svg" hasMore="" editable={this.state.edit}>
-                                <Deadline title="Statische website (HTML/CSS/JS)" dl="Gisteren"/>
-                                <Deadline title="Persona profiel" dl="Vandaag"/>
-                                <Deadline title="Storyboard video" dl="5/5/2017"/>
-                            </Card>
-                        </div>
-                        <div className="panel">
-                            <Card id="new-scores" title="Nieuwe scores" src="Score.svg" editable={this.state.edit}>
-                                <Score title="Opdracht 1: Persona Profiel" score="17"/>
-                                <Score title="Boekbespreking" score="09"/>
-                                <Score title="Onderzoek bachelorproef" score="17"/>
-                                <Score title="Navigatiestructuur" score="Feedback"/>
-                            </Card>
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <div className="panel">
-                            <Card title="Project van de dag" src="Firework.svg" hasMore="/inspiratie" editable={this.state.edit}>
-                                <img id="dashboard-project" src={require('../assets/projects/' + RandomProject)} alt="" />
+                            <Card title="Opkomende deadlines" src="Deadline.svg" hasMore="" editable={this.state.edit}>
+                                <Deadline title="Statische website (HTML/CSS/JS)" dl="Gisteren" icon="Check"/>
+                                <Deadline title="Persona profiel" dl="Vandaag" icon="Uncheck"/>
+                                <Deadline title="Storyboard video" dl="5/5/2017" icon="Uncheck"/>
                             </Card>
                         </div>
                     </div>

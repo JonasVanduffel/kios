@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class CursusOpdrachten extends Component {
+export default class CourseResults extends Component {
     render() {
         return (
-            <span>Resultaten van {this.props.params.cursus}</span>
+            <h3 id="not-available">Niet beschikbaar in dit prototype.</h3>
         );
     }
 }

@@ -40,7 +40,7 @@ export default class HeaderNew extends Component{
     }
 
     render(){
-        const {title, cursus } = this.props;
+        const {title, cursus, groep } = this.props;
 
         if(cursus){
             return(
@@ -48,14 +48,36 @@ export default class HeaderNew extends Component{
                     <div>
                         <header>
                             <h1><Link to={"/cursussen"}>Cursussen</Link> <i className="fa fa-angle-double-right" aria-hidden="true"> </i> {title}</h1>
-                            <input type="text" id="main-search" placeholder="Zoeken..." onChange={HeaderNew.handleChange.bind(this)}  /><span id="search-icon"> </span>
+                            {/*<input type="text" id="main-search" placeholder="Zoeken..." onChange={HeaderNew.handleChange.bind(this)}  /><span id="search-icon"> </span>*/}
+                            <input type="text" id="main-search" placeholder="Zoeken..." /><span id="search-icon"> </span>
                         </header>
 
-                        <div id="search-popup">
+                        {/*<div id="search-popup">
                             <Link to="#" id="close"><i className="fa fa-close" aria-hidden="true"/></Link>
                             <span>Resultaten:</span>
                             <h4 id="search-term">Zoeken</h4>
-                        </div>
+                        </div>*/}
+
+                        <SubNav {... this.props}/>
+                    </div>
+                </div>
+            )
+        } else if(groep){
+
+            return(
+                <div id="wrapper-header">
+                    <div>
+                        <header>
+                            <h1><Link to={"/groepen"}>Groepen</Link> <i className="fa fa-angle-double-right" aria-hidden="true"> </i> {title}</h1>
+                            {/*<input type="text" id="main-search" placeholder="Zoeken..." onChange={HeaderNew.handleChange.bind(this)}  /><span id="search-icon"> </span>*/}
+                            <input type="text" id="main-search" placeholder="Zoeken..." /><span id="search-icon"> </span>
+                        </header>
+
+                        {/*<div id="search-popup">
+                         <Link to="#" id="close"><i className="fa fa-close" aria-hidden="true"/></Link>
+                         <span>Resultaten:</span>
+                         <h4 id="search-term">Zoeken</h4>
+                         </div>*/}
 
                         <SubNav {... this.props}/>
                     </div>
@@ -67,15 +89,15 @@ export default class HeaderNew extends Component{
                     <div>
                         <header>
                             <h1>{title}</h1>
-                            {/*<input type="text" id="main-search" placeholder="Zoeken..." /><span id="search-icon"> </span>*/}
-                            <input type="text" id="main-search" placeholder="Zoeken..." onChange={HeaderNew.handleChange.bind(this)}  /><span id="search-icon"> </span>
+                            {/*<input type="text" id="main-search" placeholder="Zoeken..." onChange={HeaderNew.handleChange.bind(this)}  /><span id="search-icon"> </span>*/}
+                            <input type="text" id="main-search" placeholder="Zoeken..." /><span id="search-icon"> </span>
                         </header>
 
-                        <div id="search-popup">
+                        {/*<div id="search-popup">
                             <Link to="#" id="close"><i className="fa fa-close" aria-hidden="true"/></Link>
                             <span>Resultaten:</span>
                             <h4 id="search-term">Zoeken</h4>
-                        </div>
+                        </div>*/}
 
                         <SubNav {... this.props}/>
                     </div>

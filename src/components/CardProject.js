@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+
+
 const CardProject = React.createClass({
+
     renderProject(project){
         return(
             <div className="col-md-3 col-sm-6">
@@ -14,6 +17,7 @@ const CardProject = React.createClass({
                                 <div className="author">{project.author}</div>
                             </div>
                             <div className="likes">
+                                <img src={require('../assets/Glyph/_misc/Heart.svg')}/>
                                 {project.likes}
                             </div>
                         </div>

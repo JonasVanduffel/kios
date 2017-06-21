@@ -6,7 +6,7 @@ import $ from 'jquery';
 export default class CourseTasks extends Component {
     constructor(props) {
         super(props);
-        this.state = {switch: "datum"};
+        this.state = {switch: "type"};
     }
 
     static handleChange(){
@@ -38,6 +38,7 @@ export default class CourseTasks extends Component {
 
     render() {
         let actionButton;
+        const {courseId} = this.props.params;
 
         switch(this.props.children.type){
             case "Student":
@@ -63,7 +64,6 @@ export default class CourseTasks extends Component {
 
         switch(this.state.switch){
             case "type":
-
                 return(
                     <div>
                         {actionButton}
@@ -82,9 +82,9 @@ export default class CourseTasks extends Component {
                                     </div>
 
                                     <div className="body">
-                                        <Assignment title="Indienen eerste digitale versie poster" date="19 september 2017" score="10" status="offline"/>
-                                        <Assignment title="Blend 24/10/2016: onderzoeksplan" date="25 oktober 2016" score="10" status="online"/>
-                                        <Assignment title="Indienen onderzoeksplan" date="20 oktober 2016" score="10" status="online"/>
+                                        <Assignment courseId={courseId} id="a-01" title="Indienen eerste digitale versie poster" date="19 september 2017" score="10" status="offline"/>
+                                        <Assignment courseId={courseId} id="a-02" title="Blend 24/10/2016: onderzoeksplan" date="25 oktober 2016" score="10" status="online"/>
+                                        <Assignment courseId={courseId} id="a-03" title="Indienen onderzoeksplan" date="20 oktober 2016" score="10" status="online"/>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ export default class CourseTasks extends Component {
                                     </div>
 
                                     <div className="body">
-                                        <Assignment title="Indienen eerste digitale versie poster" date="19 september 2017" score="10" status="offline"/>
+                                        <Assignment courseId={courseId} id="a-02" title="Indienen eerste digitale versie poster" date="19 september 2017" score="10" status="offline"/>
                                     </div>
                                 </div>
 
@@ -128,8 +128,8 @@ export default class CourseTasks extends Component {
                                     </div>
 
                                     <div className="body">
-                                        <Assignment title="Blend 24/10/2016: onderzoeksplan" date="25 oktober 2016" score="10" status="online"/>
-                                        <Assignment title="Indienen onderzoeksplan" date="20 oktober 2016" score="10" status="online"/>
+                                        <Assignment courseId={courseId} id="a-03" title="Blend 24/10/2016: onderzoeksplan" date="25 oktober 2016" score="10" status="online"/>
+                                        <Assignment courseId={courseId} id="a-04" title="Indienen onderzoeksplan" date="20 oktober 2016" score="10" status="online"/>
                                     </div>
                                 </div>
                             </div>

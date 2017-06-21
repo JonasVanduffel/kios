@@ -34,6 +34,9 @@ export default class CourseAnnouncements extends Component {
 
         let actionButton, actionButtonFirst, noAnnouncement;
 
+
+
+
         switch(this.props.children.type){
             case "Student":
                 noAnnouncement = "Nog geen aankondigingen binnen deze cursus.";

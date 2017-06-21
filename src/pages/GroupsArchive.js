@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import Group from "../components/CardGroup";
 
-class Groepen extends Component {
+class GroepenArchief extends Component {
     render() {
         const GroupComponents = _.map(this.props.groups, (group, i) => {
-            if(group.group === "2016/2017") {
+            if(group.group === "archive") {
                 return <Group key={i} i={i} group={group}   {...this.props}/>;
             }
         });
@@ -19,4 +19,4 @@ class Groepen extends Component {
     }
 }
 
-export default Groepen;
+export default GroepenArchief;

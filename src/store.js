@@ -9,6 +9,7 @@ import courses from './data/courses';
 import announcements from './data/announcements';
 import schedule from './data/schedule';
 import projects from './data/projects';
+import groups from './data/groups';
 
 //Object for default data
 const defaultState = {
@@ -16,6 +17,7 @@ const defaultState = {
     announcements,
     schedule,
     projects,
+    groups,
 };
 
 const store = createStore(rootReducer, defaultState);

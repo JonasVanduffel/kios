@@ -24,8 +24,6 @@ class Cursussen extends Component {
     render() {
         //console.log(this.state.courses);
 
-
-
         const CourseComponents = _.map(this.props.courses, (course, i) => {
             if(course.group === "2016/2017") {
                 return <Cursus key={i} i={i} course={course} status="online" {...this.props}/>;

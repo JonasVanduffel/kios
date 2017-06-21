@@ -25,15 +25,34 @@ export default class Layout extends Component {
     }
 
     render() {
-        const { courseId } = this.props.params;
-        const { type } = this.state;
+        const {courseId } = this.props.params;
+        const {groupId} = this.props.params;
+        const {type} = this.state;
 
-        const i = this.props.courses.findIndex((course) => course.id === courseId );
+        const i = this.props.courses.findIndex((course) => course.id === courseId);
+        const j = this.props.groups.findIndex((group) => group.id === groupId);
         const course = this.props.courses[i];
+        const group = this.props.groups[j];
+
+        if(groupId != null){
+            return (
+                <div>
+                    <Sidebar type={type} id={group.id} tit={group.title} title={this.props.children.props.route.title} groep={true}/>
+
+                    <div id="main-wrapper">
+                        <Header id={group.id} title={group.title} groep={true}/>
+                        <main>
+                            <div className="container-fluid">
+                                {React.cloneElement(this.props.children, this.props, {type: type})}
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            );
+        }
 
         if (courseId == null) {
             return (
-
                 <div>
                     <Sidebar type={type} title={this.props.children.props.route.title}/>
 
@@ -48,9 +67,8 @@ export default class Layout extends Component {
                     </div>
                 </div>
             );
-        } else {
+        } else if(courseId) {
             return (
-
                 <div>
                     <Sidebar type={type} id={course.id} tit={course.title} title={this.props.children.props.route.title} cursus={true}/>
 
@@ -65,5 +83,7 @@ export default class Layout extends Component {
                 </div>
             );
         }
+
+
     }
 }

@@ -26,12 +26,19 @@ import CoursesArchive from './pages/CoursesArchive';
 import CourseAnnouncements from './pages/course/CourseAnnouncements';
 import CourseDocuments from './pages/course/CourseDocuments';
 import CourseTasks from './pages/course/CourseTasks';
+import CourseTaskDetail from './pages/course/CourseTaskDetail';
+import CourseTaskSubmit from './pages/course/CourseTaskSubmit';
 import CourseResults from './pages/course/CourseResults';
 import CourseECTS from './pages/course/CourseECTS';
 
 import Inspiration from './pages/Inspiration';
 import ProjectDetail from './pages/ProjectDetail';
+
 import Groups from './pages/Groups';
+import GroupsGeneral from './pages/GroupsGeneral';
+import GroupsArchive from './pages/GroupsArchive';
+import GroupsNewsFeed from './pages/group/GroupNewsFeed';
+
 import EmptyPage from './pages/EmptyPage';
 import Account from './pages/Account';
 
@@ -81,15 +88,18 @@ const routes = (
                 <Route path="cursussen/:courseId/aankondigingen" component={CourseAnnouncements} onEnter={requireAuth}> </Route>
                 <Route path="cursussen/:courseId/cursusdocumenten" component={CourseDocuments} onEnter={requireAuth}> </Route>
                 <Route path="cursussen/:courseId/opdrachten" component={CourseTasks} onEnter={requireAuth}> </Route>
-                <Route path="cursussen/:courseId/opdrachten/:opdracht" component={CourseTasks} onEnter={requireAuth}> </Route>
+                <Route path="cursussen/:courseId/opdrachten/:opdracht" component={CourseTaskDetail} onEnter={requireAuth}> </Route>
+                <Route path="cursussen/:courseId/opdrachten/:opdracht/indienen" component={CourseTaskSubmit} onEnter={requireAuth}> </Route>
                 <Route path="cursussen/:courseId/resultaten" component={CourseResults} onEnter={requireAuth}> </Route>
                 <Route path="cursussen/:courseId/ects" component={CourseECTS} onEnter={requireAuth}> </Route>
 
                 <Route path="inspiratie" component={Inspiration} title={"Community / inspiratie"} onEnter={requireAuth}> </Route>
-                <Route path="inspiratie/:projectId" component={ProjectDetail} onEnter={requireAuth}> </Route>
+                <Route path="inspiratie/:projectId" component={ProjectDetail} title={"Community / inspiratie"} onEnter={requireAuth}> </Route>
 
                 <Route path="groepen" component={Groups} title={"Groepen"} onEnter={requireAuth}> </Route>
-                <Route path="groepen/:groupId" component={Groups} title={"Groepen"} onEnter={requireAuth}> </Route>
+                <Route path="groepen/algemeen" component={GroupsGeneral} title={"Groepen"} onEnter={requireAuth}> </Route>
+                <Route path="groepen/archief" component={GroupsArchive} title={"Groepen"} onEnter={requireAuth}> </Route>
+                <Route path="groepen/:groupId/nieuwsfeed" component={GroupsNewsFeed} title={"Groepen"} onEnter={requireAuth}> </Route>
 
                 <Route path="kalender" component={EmptyPage} onEnter={requireAuth} title={"Kalender"}> </Route>
                 <Route path="inbox" component={EmptyPage} onEnter={requireAuth} title={"Inbox"}> </Route>

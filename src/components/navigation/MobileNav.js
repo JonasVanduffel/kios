@@ -6,13 +6,23 @@ import { Link } from 'react-router';
 
 export default class MobileNav extends Component {
     render() {
-        const { type, cursus, tit } = this.props;
+        const { type, cursus, tit, groep } = this.props;
 
         if(type === "Student"){
             if(cursus){
                 return (
                     <nav id="mobile-nav-main">
                         <Link to={"/cursussen"}>
+                            <img src={require('./../../assets/Glyph/Light/Back.svg')} alt="Terug"/>
+                        </Link>
+                        <h3>{tit}</h3>
+                    </nav>
+                )
+            }
+            if(groep){
+                return (
+                    <nav id="mobile-nav-main">
+                        <Link to={"/groepen"}>
                             <img src={require('./../../assets/Glyph/Light/Back.svg')} alt="Terug"/>
                         </Link>
                         <h3>{tit}</h3>
