@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 
 import File from '../../components/CardFile';
+import { Link } from 'react-router';
 
 export default class CursusDocumenten extends Component {
     constructor(props) {
@@ -22,7 +23,9 @@ export default class CursusDocumenten extends Component {
             case "Student":
                 icon = "Download.svg";
                 actionButton = (
-                    null
+                    <div id="action-button" className="no-mobile">
+                        <Link to="/" className="btn btn-small btn-primary "><img src={require('./../../assets/Glyph/Light/Download.svg')} alt="" /> Download alle bestanden</Link>
+                    </div>
                 );
                 break;
             case "Docent":

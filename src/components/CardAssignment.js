@@ -8,10 +8,10 @@ export default class AssignmentBlock extends Component{
 
         switch(status){
             case "online":
-                actionButton = <Link className="action" to={`/cursussen/${courseId}/opdrachten/${id}`}>Bekijk inzending</Link>;
+                actionButton = <Link className="action" to="/">Bekijk inzending</Link>;
                 break;
             case "offline":
-                actionButton = <Link className="action" to={`/cursussen/${courseId}/opdrachten/${id}/indienen`}><i className='fa fa-upload' aria-hidden='true'> </i> Indienen</Link>;
+                actionButton = <Link className="action" to="/"><i className='fa fa-upload' aria-hidden='true'> </i> Indienen</Link>;
                 text = "Indienen";
                 break;
         }
@@ -22,7 +22,7 @@ export default class AssignmentBlock extends Component{
             <div className="card card-assignment">
                 <span className={`status ${status}`}/>
                 <div className="assignment-meta">
-                    <h4><Link to={`/cursussen/${courseId}/opdrachten/${id}`}>{title}</Link></h4>
+                    <h4><Link to="/">{title}</Link></h4>
                     <div className="extra">
                         <span className="datum">Einddatum: {date}</span>
                         <span className="score">{score} punten</span>

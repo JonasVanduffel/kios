@@ -975,7 +975,8 @@ ul li {
 .btn img {
   width: 20px !important;
   height: 20px !important;
-  margin-right: 10px; }
+  margin-right: 10px;
+  vertical-align: middle !important; }
 
 @media (max-width: 768px) {
   .btn.btn-edit {
